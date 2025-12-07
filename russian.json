@@ -1,0 +1,676 @@
+{
+    "all words": [
+        {
+            "russian": "привет",
+            "english": "hello"
+        },
+        {
+            "russian": "пока",
+            "english": "goodbye"
+        },
+        {
+            "russian": "спасибо",
+            "english": "thank you"
+        },
+        {
+            "russian": "кофе",
+            "english": "coffee"
+        },
+        {
+            "russian": "чай",
+            "english": "tea"
+        },
+        {
+            "russian": "вода",
+            "english": "water"
+        },
+        {
+            "russian": "отлично",
+            "english": "excellent"
+        },
+        {
+            "russian": "хорошо",
+            "english": "good / fine"
+        },
+        {
+            "russian": "скачать",
+            "english": "to download"
+        },
+        {
+            "russian": "удалить",
+            "english": "to delete / remove"
+        },
+        {
+            "russian": "загрузить",
+            "english": "to upload / load"
+        },
+        {
+            "russian": "пропустить",
+            "english": "to skip / miss"
+        },
+        {
+            "russian": "язык",
+            "english": "language"
+        },
+        {
+            "russian": "править",
+            "english": "to rule / to govern / to edit"
+        },
+        {
+            "russian": "основные",
+            "english": "main / basic / fundamental (plural)"
+        },
+        {
+            "russian": "журнал",
+            "english": "magazine"
+        },
+        {
+            "russian": "завтрак",
+            "english": "breakfast"
+        },
+        {
+            "russian": "эспрессо",
+            "english": "espresso"
+        },
+        {
+            "russian": "бульон",
+            "english": "broth"
+        },
+        {
+            "russian": "вилки",
+            "english": "forks"
+        },
+        {
+            "russian": "кошка",
+            "english": "cat"
+        },
+        {
+            "russian": "молоко",
+            "english": "milk"
+        },
+        {
+            "russian": "сливки",
+            "english": "cream"
+        },
+        {
+            "russian": "дата",
+            "english": "date"
+        },
+        {
+            "russian": "написать",
+            "english": "to write"
+        },
+        {
+            "russian": "вернуться",
+            "english": "to return / come back"
+        },
+        {
+            "russian": "политик",
+            "english": "politician"
+        },
+        {
+            "russian": "политика",
+            "english": "politics"
+        },
+        {
+            "russian": "апельсиновый сок",
+            "english": "orange juice"
+        },
+        {
+            "russian": "булочка",
+            "english": "bun / roll"
+        },
+        {
+            "russian": "горячий шоколад",
+            "english": "hot chocolate"
+        },
+        {
+            "russian": "десерт",
+            "english": "dessert"
+        },
+        {
+            "russian": "еда",
+            "english": "food"
+        },
+        {
+            "russian": "ингредиенты",
+            "english": "ingredients"
+        },
+        {
+            "russian": "кекс",
+            "english": "cupcake / small cake"
+        },
+        {
+            "russian": "лимонад",
+            "english": "lemonade"
+        },
+        {
+            "russian": "меню",
+            "english": "menu"
+        },
+        {
+            "russian": "напиток",
+            "english": "drink / beverage"
+        },
+        {
+            "russian": "обслуживание",
+            "english": "service"
+        },
+        {
+            "russian": "пирог",
+            "english": "pie"
+        },
+        {
+            "russian": "рецепт",
+            "english": "recipe"
+        },
+        {
+            "russian": "салат",
+            "english": "salad"
+        },
+        {
+            "russian": "торт",
+            "english": "cake"
+        },
+        {
+            "russian": "угощение",
+            "english": "treat / snack"
+        },
+        {
+            "russian": "фужер",
+            "english": "wine glass"
+        },
+        {
+            "russian": "хлеб",
+            "english": "bread"
+        },
+        {
+            "russian": "цыплёнок",
+            "english": "chicken"
+        },
+        {
+            "russian": "чизкейк",
+            "english": "cheesecake"
+        },
+        {
+            "russian": "шейк",
+            "english": "milkshake"
+        },
+        {
+            "russian": "щербет",
+            "english": "sherbet / sorbet"
+        },
+        {
+            "russian": "яблочный пирог",
+            "english": "apple pie"
+        },
+        {
+            "russian": "актёр",
+            "english": "actor"
+        },
+        {
+            "russian": "Америка",
+            "english": "America"
+        },
+        {
+            "russian": "Бразилия",
+            "english": "Brazil"
+        },
+        {
+            "russian": "вечер",
+            "english": "evening"
+        },
+        {
+            "russian": "день",
+            "english": "afternoon / day"
+        },
+        {
+            "russian": "вино",
+            "english": "wine"
+        },
+        {
+            "russian": "где",
+            "english": "where"
+        },
+        {
+            "russian": "город",
+            "english": "city"
+        },
+        {
+            "russian": "да",
+            "english": "yes"
+        },
+        {
+            "russian": "девочка",
+            "english": "girl"
+        },
+        {
+            "russian": "бизнес",
+            "english": "business"
+        },
+        {
+            "russian": "милый",
+            "english": "nice"
+        },
+        {
+            "russian": "доктор",
+            "english": "doctor"
+        },
+        {
+            "russian": "дом",
+            "english": "house"
+        },
+        {
+            "russian": "друг",
+            "english": "friend"
+        },
+        {
+            "russian": "есть",
+            "english": "to eat / eating"
+        },
+        {
+            "russian": "ест",
+            "english": "eats"
+        },
+        {
+            "russian": "извините",
+            "english": "sorry"
+        },
+        {
+            "russian": "женщина",
+            "english": "woman"
+        },
+        {
+            "russian": "здесь",
+            "english": "here"
+        },
+        {
+            "russian": "и",
+            "english": "and"
+        },
+        {
+            "russian": "или",
+            "english": "or"
+        },
+        {
+            "russian": "инженер",
+            "english": "engineer"
+        },
+        {
+            "russian": "Канада",
+            "english": "Canada"
+        },
+        {
+            "russian": "капитан",
+            "english": "captain"
+        },
+        {
+            "russian": "конечно",
+            "english": "of course"
+        },
+        {
+            "russian": "кто",
+            "english": "who"
+        },
+        {
+            "russian": "маленький",
+            "english": "small"
+        },
+        {
+            "russian": "мальчик",
+            "english": "boy"
+        },
+        {
+            "russian": "мама",
+            "english": "mom"
+        },
+        {
+            "russian": "метро",
+            "english": "metro / subway"
+        },
+        {
+            "russian": "мой",
+            "english": "my"
+        },
+        {
+            "russian": "мужчина",
+            "english": "man"
+        },
+        {
+            "russian": "музыкант",
+            "english": "musician"
+        },
+        {
+            "russian": "мясо",
+            "english": "meat"
+        },
+        {
+            "russian": "не",
+            "english": "not"
+        },
+        {
+            "russian": "нет",
+            "english": "no"
+        },
+        {
+            "russian": "он",
+            "english": "he"
+        },
+        {
+            "russian": "она",
+            "english": "she"
+        },
+        {
+            "russian": "они",
+            "english": "they"
+        },
+        {
+            "russian": "папа",
+            "english": "dad"
+        },
+        {
+            "russian": "парк",
+            "english": "park"
+        },
+        {
+            "russian": "пилот",
+            "english": "pilot"
+        },
+        {
+            "russian": "пицца",
+            "english": "pizza"
+        },
+        {
+            "russian": "повар",
+            "english": "cook (profession)"
+        },
+        {
+            "russian": "пожалуйста",
+            "english": "please / you're welcome"
+        },
+        {
+            "russian": "психолог",
+            "english": "psychologist"
+        },
+        {
+            "russian": "пить",
+            "english": "to drink"
+        },
+        {
+            "russian": "пьёт",
+            "english": "is drinking"
+        },
+        {
+            "russian": "Россия",
+            "english": "Russia"
+        },
+        {
+            "russian": "рюкзак",
+            "english": "backpack"
+        },
+        {
+            "russian": "свитер",
+            "english": "sweater"
+        },
+        {
+            "russian": "собака",
+            "english": "dog"
+        },
+        {
+            "russian": "сок",
+            "english": "juice"
+        },
+        {
+            "russian": "спать",
+            "english": "sleeping / to sleep"
+        },
+        {
+            "russian": "суп",
+            "english": "soup"
+        },
+        {
+            "russian": "сыр",
+            "english": "cheese"
+        },
+        {
+            "russian": "там",
+            "english": "there"
+        },
+        {
+            "russian": "тот",
+            "english": "that"
+        },
+        {
+            "russian": "тренер",
+            "english": "coach"
+        },
+        {
+            "russian": "ты",
+            "english": "you"
+        },
+        {
+            "russian": "уже",
+            "english": "already"
+        },
+        {
+            "russian": "утро",
+            "english": "morning"
+        },
+        {
+            "russian": "учитель",
+            "english": "teacher"
+        },
+        {
+            "russian": "хотеть",
+            "english": "to want"
+        },
+        {
+            "russian": "это",
+            "english": "this"
+        },
+        {
+            "russian": "я",
+            "english": "I"
+        },
+        {
+            "russian": "яблоко",
+            "english": "apple"
+        },
+        {
+            "russian": "добрый",
+            "english": "good / kind"
+        },
+        {
+            "russian": "ночь",
+            "english": "night"
+        },
+        {
+            "russian": "как",
+            "english": "how"
+        },
+        {
+            "russian": "дело",
+            "english": "matter / business / affair"
+        },
+        {
+            "russian": "любить",
+            "english": "to love"
+        },
+        {
+            "russian": "а",
+            "english": "and / but"
+        },
+        {
+            "russian": "у",
+            "english": "at / by"
+        },
+        {
+            "russian": "жена",
+            "english": "wife"
+        },
+        {
+            "russian": "понимать",
+            "english": "to understand"
+        },
+        {
+            "russian": "сегодня",
+            "english": "today"
+        },
+        {
+        "russian": "понедельник",
+        "english": "Monday"
+        },
+        {
+        "russian": "вторник",
+        "english": "Tuesday"
+        },
+        {
+        "russian": "среда",
+        "english": "Wednesday"
+        },
+        {
+        "russian": "четверг",
+        "english": "Thursday"
+        },
+        {
+        "russian": "пятница",
+        "english": "Friday"
+        },
+        {
+        "russian": "суббота",
+        "english": "Saturday"
+        },
+        {
+        "russian": "воскресенье",
+        "english": "Sunday"
+        },
+        {
+        "russian": "январь",
+        "english": "January"
+        },
+        {
+        "russian": "февраль",
+        "english": "February"
+        },
+        {
+        "russian": "март",
+        "english": "March"
+        },
+        {
+        "russian": "апрель",
+        "english": "April"
+        },
+        {
+        "russian": "май",
+        "english": "May"
+        },
+        {
+        "russian": "июнь",
+        "english": "June"
+        },
+        {
+        "russian": "июль",
+        "english": "July"
+        },
+        {
+        "russian": "август",
+        "english": "August"
+        },
+        {
+        "russian": "сентябрь",
+        "english": "September"
+        },
+        {
+        "russian": "октябрь",
+        "english": "October"
+        },
+        {
+        "russian": "ноябрь",
+        "english": "November"
+        },
+        {
+        "russian": "декабрь",
+        "english": "December"
+        }
+    ],
+    "all phrases": [
+        {
+            "russian": "доброе утро",
+            "english": "good morning"
+        },
+        {
+            "russian": "добрый день",
+            "english": "good day / good afternoon"
+        },
+        {
+            "russian": "добрый вечер",
+            "english": "good evening"
+        },
+        {
+            "russian": "спокойной ночи",
+            "english": "good night"
+        },
+        {
+            "russian": "как дела",
+            "english": "how are you"
+        },
+        {
+            "russian": "я тебя люблю",
+            "english": "I love you"
+        },
+        {
+            "russian": "хорошо, спасибо",
+            "english": "good, thank you"
+        },
+        {
+            "russian": "а у тебя как",
+            "english": "and how about you"
+        },
+        {
+            "russian": "добро пожаловать",
+            "english": "welcome"
+        },
+        {
+            "russian": "у меня есть",
+            "english": "I have"
+        }
+    ],
+    "all sentences": [
+        {
+            "russian": "это моя жена",
+            "english": "this is my wife"
+        },
+        {
+            "russian": "я понимаю",
+            "english": "I understand"
+        },
+        {
+            "russian": "спасибо, это отлично",
+            "english": "thank you, it's excellent"
+        },
+        {
+            "russian": "спокойной ночи, кошка",
+            "english": "good night, cat"
+        },
+        {
+            "russian": "я люблю кофе",
+            "english": "I love coffee"
+        },
+        {
+            "russian": "я люблю кофе и мою жену",
+            "english": "I love coffee and my wife"
+        },
+        {
+            "russian": "я пью кофе сегодня днём",
+            "english": "I am drinking coffee this afternoon"
+        },
+        {
+            "russian": "добрый вечер, я дома",
+            "english": "good evening, I'm home"
+        },
+        {
+            "russian": "Я знаю немного русский",
+            "english": "I know a little Russian"
+        }
+    ]
+}
