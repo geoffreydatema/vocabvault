@@ -715,6 +715,62 @@
         {
             "russian": "пиво",
             "english": "beer"
+        },
+        {
+            "russian": "ужин",
+            "english": "supper / dinner / evening meal"
+        },
+        {
+            "russian": "грамматика",
+            "english": "grammar"
+        },
+        {
+            "russian": "студент",
+            "english": "student"
+        },
+        {
+            "russian": "квартира",
+            "english": "apartment"
+        },
+        {
+            "russian": "ночь",
+            "english": "night"
+        },
+        {
+            "russian": "море",
+            "english": "sea"
+        },
+        {
+            "russian": "дверь",
+            "english": "door"
+        },
+        {
+            "russian": "карта",
+            "english": "map / card"
+        },
+        {
+            "russian": "имя",
+            "english": "name"
+        },
+        {
+            "russian": "словарь",
+            "english": "dictionary"
+        },
+        {
+            "russian": "дядя",
+            "english": "uncle"
+        },
+        {
+            "russian": "здание",
+            "english": "building"
+        },
+        {
+            "russian": "рука",
+            "english": "hand / arm"
+        },
+        {
+            "russian": "паспорт",
+            "english": "passport"
         }
     ],
     "all phrases": [
@@ -801,7 +857,19 @@
             "english": "good evening, I'm home"
         },
         {
-            "russian": "Я знаю немного русский",
+            "russian": "У тебя есть друг?",
+            "english": "Do you have a friend?"
+        },
+        {
+            "russian": "Это хорошее утро",
+            "english": "This is a good morning"
+        },
+        {
+            "russian": "это отличный ужин",
+            "english": "This is an excellent supper"
+        },
+        {
+            "russian": "я знаю немного русского",
             "english": "I know a little Russian"
         }
     ]
