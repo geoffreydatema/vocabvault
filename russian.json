@@ -2,7 +2,7 @@
     "all words": [
         {
             "russian": "привет",
-            "english": "hello"
+            "english": "hi, hello (informal)"
         },
         {
             "russian": "пока",
@@ -771,6 +771,126 @@
         {
             "russian": "паспорт",
             "english": "passport"
+        },
+        {
+            "russian": "здравствуйте",
+            "english": "hello (formal)"
+        },
+        {
+            "russian": "ноль",
+            "english": "zero"
+        },
+        {
+            "russian": "один",
+            "english": "one"
+        },
+        {
+            "russian": "два",
+            "english": "two"
+        },
+        {
+            "russian": "три",
+            "english": "three"
+        },
+        {
+            "russian": "четыре",
+            "english": "four"
+        },
+        {
+            "russian": "пять",
+            "english": "five"
+        },
+        {
+            "russian": "шесть",
+            "english": "six"
+        },
+        {
+            "russian": "семь",
+            "english": "seven"
+        },
+        {
+            "russian": "восемь",
+            "english": "eight"
+        },
+        {
+            "russian": "девять",
+            "english": "nine"
+        },
+        {
+            "russian": "десять",
+            "english": "ten"
+        },
+        {
+            "russian": "одиннадцать",
+            "english": "eleven"
+        },
+        {
+            "russian": "двенадцать",
+            "english": "twelve"
+        },
+        {
+            "russian": "тринадцать",
+            "english": "thirteen"
+        },
+        {
+            "russian": "четырнадцать",
+            "english": "fourteen"
+        },
+        {
+            "russian": "пятнадцать",
+            "english": "fifteen"
+        },
+        {
+            "russian": "шестнадцать",
+            "english": "sixteen"
+        },
+        {
+            "russian": "семнадцать",
+            "english": "seventeen"
+        },
+        {
+            "russian": "восемнадцать",
+            "english": "eighteen"
+        },
+        {
+            "russian": "девятнадцать",
+            "english": "nineteen"
+        },
+        {
+            "russian": "двадцать",
+            "english": "twenty"
+        },
+        {
+            "russian": "тридцать",
+            "english": "thirty"
+        },
+        {
+            "russian": "сорок",
+            "english": "forty"
+        },
+        {
+            "russian": "пятьдесят",
+            "english": "fifty"
+        },
+        {
+            "russian": "шестьдесят",
+            "english": "sixty"
+        },
+        {
+            "russian": "семьдесят",
+            "english": "seventy"
+        },
+        {
+            "russian": "восемьдесят",
+            "english": "eighty"
+        },
+        {
+            "russian": "девяносто",
+            "english": "ninety"
+        },
+        {
+            "russian": "сто",
+            "english": "one hundred"
         }
     ],
     "all phrases": [
