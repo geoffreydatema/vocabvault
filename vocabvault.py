@@ -11,11 +11,12 @@ from PySide6.QtGui import QFont, QColor
 from PySide6.QtCore import Qt
 
 class FlashcardDialog(QDialog):
-    def __init__(self, items, parent=None):
+    def __init__(self, items, max_score=20, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Practice Mode")
         self.resize(600, 450)
         self.items = items
+        self.max_score = max_score  # Store the cap
         self.current_index = 0
         
         # UI Setup
@@ -98,15 +99,17 @@ class FlashcardDialog(QDialog):
         self.progress_label.setText(f"Card {self.current_index + 1} of {len(self.items)}")
 
     def mark_known(self):
-        """User guessed right."""
+        """User guessed right. Add 1, CAP at max_score."""
         item = self.items[self.current_index]
-        item['score'] = item.get('score', 0) + 1
+        current_score = item.get('score', 0)
+        item['score'] = min(current_score + 1, self.max_score)
         self.reveal_answer()
 
     def mark_unknown(self):
-        """User guessed wrong."""
+        """User guessed wrong. Subtract 1, NO FLOOR."""
         item = self.items[self.current_index]
-        item['score'] = item.get('score', 0) - 1
+        current_score = item.get('score', 0)
+        item['score'] = current_score - 1
         self.reveal_answer()
 
     def reveal_answer(self):
@@ -136,6 +139,9 @@ class VocabVault(QMainWindow):
         self.setWindowTitle("Vocab Vault")
         self.resize(1280, 720)
         
+        # CONFIG: Max Score Cap
+        self.MAX_SCORE = 20
+
         # Global font size
         font = QFont()
         font.setPointSize(14)
@@ -212,7 +218,6 @@ class VocabVault(QMainWindow):
             tab_layout = QVBoxLayout(tab)
             
             table = QTableWidget()
-            # UPDATED: 4 Columns now (Added Score)
             table.setColumnCount(4) 
             table.setHorizontalHeaderLabels(["Russian", "English Definition", "Score", ""])
             
@@ -250,13 +255,15 @@ class VocabVault(QMainWindow):
         keyboard_widget = self.create_keyboard()
         input_grid.addWidget(keyboard_widget, 1, 0, alignment=Qt.AlignTop | Qt.AlignLeft)
         
-        # Stats & Practice
+        # Stats & Practice Container
         self.stats_container = QWidget()
         self.stats_layout = QVBoxLayout(self.stats_container)
         self.stats_layout.setContentsMargins(10, 10, 0, 0)
         
+        # Stats Label
         self.stats_label = QLabel()
         self.stats_label.setStyleSheet("color: #555; font-size: 16px;")
+        self.stats_label.setWordWrap(True)
         self.stats_layout.addWidget(self.stats_label)
         
         self.stats_layout.addSpacing(20)
@@ -265,19 +272,29 @@ class VocabVault(QMainWindow):
         practice_label.setStyleSheet("font-weight: bold; font-size: 14px;")
         self.stats_layout.addWidget(practice_label)
         
+        # --- NEW PRACTICE BUTTONS AREA ---
         practice_row = QHBoxLayout()
         self.card_count_spin = QSpinBox()
         self.card_count_spin.setRange(1, 100)
         self.card_count_spin.setValue(10)
         self.card_count_spin.setFixedWidth(70)
-        self.card_count_spin.setMinimumHeight(30)
+        self.card_count_spin.setMinimumHeight(35)
         
-        practice_btn = QPushButton("Start")
-        practice_btn.setMinimumHeight(30)
-        practice_btn.clicked.connect(self.start_practice)
-        
+        # Button 1: Random
+        self.btn_random = QPushButton("Practice Random")
+        self.btn_random.setMinimumHeight(35)
+        # Pass "random" mode to the function
+        self.btn_random.clicked.connect(lambda: self.start_practice(mode="random"))
+
+        # Button 2: Weak
+        self.btn_weak = QPushButton("Practice Weak")
+        self.btn_weak.setMinimumHeight(35)
+        # Pass "weak" mode to the function
+        self.btn_weak.clicked.connect(lambda: self.start_practice(mode="weak"))
+
         practice_row.addWidget(self.card_count_spin)
-        practice_row.addWidget(practice_btn)
+        practice_row.addWidget(self.btn_random)
+        practice_row.addWidget(self.btn_weak)
         
         self.stats_layout.addLayout(practice_row)
         self.stats_layout.addStretch()
@@ -291,7 +308,7 @@ class VocabVault(QMainWindow):
         
         main_layout.addLayout(input_grid)
 
-    def start_practice(self):
+    def start_practice(self, mode="random"):
         current_index = self.tabs.currentIndex()
         current_category = self.categories[current_index]
         items = self.data[current_category]
@@ -301,16 +318,30 @@ class VocabVault(QMainWindow):
             return
             
         count = self.card_count_spin.value()
-        sample_size = min(count, len(items))
-        selected_items = random.sample(items, sample_size)
         
+        # --- SELECTION LOGIC ---
+        if mode == "weak":
+            # 1. Sort by score (ascending: lowest score first)
+            # 2. Slice the list to get the worst 'count' items
+            sorted_items = sorted(items, key=lambda x: x.get('score', 0))
+            selected_items = sorted_items[:count]
+            
+            # 3. Shuffle this specific weak batch so you don't memorize the order
+            random.shuffle(selected_items)
+            
+        else:
+            # "random" mode
+            sample_size = min(count, len(items))
+            selected_items = random.sample(items, sample_size)
+            
         # Run Dialog
-        dialog = FlashcardDialog(selected_items, self)
+        dialog = FlashcardDialog(selected_items, max_score=self.MAX_SCORE, parent=self)
         dialog.exec()
         
         # AFTER Dialog closes: Save scores and update UI
         self.save_data()
         self.refresh_table(current_category)
+        self.update_stats()
 
     def toggle_definitions(self, checked):
         for table in self.tables.values():
@@ -382,12 +413,27 @@ class VocabVault(QMainWindow):
         return container
 
     def update_stats(self):
+        # 1. Counts per category
         parts = []
         for category in self.categories:
             count = len(self.data[category])
             display_name = category.replace("all ", "").title()
             parts.append(f"{display_name}: {count}")
-        self.stats_label.setText("   |   ".join(parts))
+        
+        # 2. Total Score Calculation
+        total_score = 0
+        for category in self.categories:
+            for item in self.data[category]:
+                total_score += item.get('score', 0)
+        
+        # Color code the total score string
+        score_color = "green" if total_score >= 0 else "red"
+        
+        stats_text = "   |   ".join(parts)
+        final_text = (f"{stats_text}<br><br>"
+                      f"<b>Total Mastery Score: <span style='color:{score_color};'>{total_score}</span></b>")
+        
+        self.stats_label.setText(final_text)
 
     def toggle_shift(self, checked):
         self.is_shifted = checked
@@ -470,7 +516,6 @@ class VocabVault(QMainWindow):
         current_index = self.tabs.currentIndex()
         current_category = self.categories[current_index]
         
-        # New entries start with score 0
         new_entry = {"russian": russian_text, "english": english_text, "score": 0}
         self.data[current_category].append(new_entry)
         
