@@ -11,7 +11,7 @@ from PySide6.QtGui import QFont, QColor
 from PySide6.QtCore import Qt
 
 class FlashcardDialog(QDialog):
-    def __init__(self, items, max_score=20, parent=None):
+    def __init__(self, items, max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Practice Mode")
         self.resize(600, 450)
@@ -140,7 +140,7 @@ class VocabVault(QMainWindow):
         self.resize(1280, 720)
         
         # CONFIG: Max Score Cap
-        self.MAX_SCORE = 20
+        self.MAX_SCORE = 10
 
         # Global font size
         font = QFont()
@@ -283,13 +283,11 @@ class VocabVault(QMainWindow):
         # Button 1: Random
         self.btn_random = QPushButton("Practice Random")
         self.btn_random.setMinimumHeight(35)
-        # Pass "random" mode to the function
         self.btn_random.clicked.connect(lambda: self.start_practice(mode="random"))
 
         # Button 2: Weak
         self.btn_weak = QPushButton("Practice Weak")
         self.btn_weak.setMinimumHeight(35)
-        # Pass "weak" mode to the function
         self.btn_weak.clicked.connect(lambda: self.start_practice(mode="weak"))
 
         practice_row.addWidget(self.card_count_spin)
@@ -325,7 +323,6 @@ class VocabVault(QMainWindow):
             # 2. Slice the list to get the worst 'count' items
             sorted_items = sorted(items, key=lambda x: x.get('score', 0))
             selected_items = sorted_items[:count]
-            
             # 3. Shuffle this specific weak batch so you don't memorize the order
             random.shuffle(selected_items)
             
@@ -413,25 +410,31 @@ class VocabVault(QMainWindow):
         return container
 
     def update_stats(self):
-        # 1. Counts per category
+        # 1. Counts per category and calculate Max Possible Score
         parts = []
+        total_items_count = 0
+        
         for category in self.categories:
             count = len(self.data[category])
+            total_items_count += count
             display_name = category.replace("all ", "").title()
             parts.append(f"{display_name}: {count}")
         
-        # 2. Total Score Calculation
-        total_score = 0
+        # 2. Total Current Score Calculation
+        current_total_score = 0
         for category in self.categories:
             for item in self.data[category]:
-                total_score += item.get('score', 0)
+                current_total_score += item.get('score', 0)
+        
+        # 3. Calculate Total Possible Max Score
+        max_possible_score = total_items_count * self.MAX_SCORE
         
         # Color code the total score string
-        score_color = "green" if total_score >= 0 else "red"
+        score_color = "green" if current_total_score >= 0 else "red"
         
         stats_text = "   |   ".join(parts)
         final_text = (f"{stats_text}<br><br>"
-                      f"<b>Total Mastery Score: <span style='color:{score_color};'>{total_score}</span></b>")
+                      f"<b>Total Mastery Score: <span style='color:{score_color};'>{current_total_score}</span> / {max_possible_score}</b>")
         
         self.stats_label.setText(final_text)
 
