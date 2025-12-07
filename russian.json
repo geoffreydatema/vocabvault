@@ -6,7 +6,7 @@
         },
         {
             "russian": "пока",
-            "english": "goodbye"
+            "english": "goodbye (casual, informal)"
         },
         {
             "russian": "спасибо",
@@ -517,80 +517,204 @@
             "english": "today"
         },
         {
-        "russian": "понедельник",
-        "english": "Monday"
+            "russian": "понедельник",
+            "english": "Monday"
         },
         {
-        "russian": "вторник",
-        "english": "Tuesday"
+            "russian": "вторник",
+            "english": "Tuesday"
         },
         {
-        "russian": "среда",
-        "english": "Wednesday"
+            "russian": "среда",
+            "english": "Wednesday"
         },
         {
-        "russian": "четверг",
-        "english": "Thursday"
+            "russian": "четверг",
+            "english": "Thursday"
         },
         {
-        "russian": "пятница",
-        "english": "Friday"
+            "russian": "пятница",
+            "english": "Friday"
         },
         {
-        "russian": "суббота",
-        "english": "Saturday"
+            "russian": "суббота",
+            "english": "Saturday"
         },
         {
-        "russian": "воскресенье",
-        "english": "Sunday"
+            "russian": "воскресенье",
+            "english": "Sunday"
         },
         {
-        "russian": "январь",
-        "english": "January"
+            "russian": "январь",
+            "english": "January"
         },
         {
-        "russian": "февраль",
-        "english": "February"
+            "russian": "февраль",
+            "english": "February"
         },
         {
-        "russian": "март",
-        "english": "March"
+            "russian": "март",
+            "english": "March"
         },
         {
-        "russian": "апрель",
-        "english": "April"
+            "russian": "апрель",
+            "english": "April"
         },
         {
-        "russian": "май",
-        "english": "May"
+            "russian": "май",
+            "english": "May"
         },
         {
-        "russian": "июнь",
-        "english": "June"
+            "russian": "июнь",
+            "english": "June"
         },
         {
-        "russian": "июль",
-        "english": "July"
+            "russian": "июль",
+            "english": "July"
         },
         {
-        "russian": "август",
-        "english": "August"
+            "russian": "август",
+            "english": "August"
         },
         {
-        "russian": "сентябрь",
-        "english": "September"
+            "russian": "сентябрь",
+            "english": "September"
         },
         {
-        "russian": "октябрь",
-        "english": "October"
+            "russian": "октябрь",
+            "english": "October"
         },
         {
-        "russian": "ноябрь",
-        "english": "November"
+            "russian": "ноябрь",
+            "english": "November"
         },
         {
-        "russian": "декабрь",
-        "english": "December"
+            "russian": "декабрь",
+            "english": "December"
+        },
+        {
+            "russian": "всё",
+            "english": "everything/all"
+        },
+        {
+            "russian": "ну",
+            "english": "well... (interjection)"
+        },
+        {
+            "russian": "брат",
+            "english": "brother"
+        },
+        {
+            "russian": "мы",
+            "english": "we, are we, we'll"
+        },
+        {
+            "russian": "велосипед",
+            "english": "bicycle"
+        },
+        {
+            "russian": "ребёнок",
+            "english": "child, baby, kid"
+        },
+        {
+            "russian": "нас",
+            "english": "us, than us"
+        },
+        {
+            "russian": "у",
+            "english": "with, near, at, have, has, from, by, of"
+        },
+        {
+            "russian": "дети",
+            "english": "children, kids, babies"
+        },
+        {
+            "russian": "наше",
+            "english": "our, ours"
+        },
+        {
+            "russian": "банан",
+            "english": "banana"
+        },
+        {
+            "russian": "сестра",
+            "english": "sister"
+        },
+        {
+            "russian": "в",
+            "english": "on, are in, there is"
+        },
+        {
+            "russian": "кафе",
+            "english": "cafe"
+        },
+        {
+            "russian": "яйцо",
+            "english": "egg"
+        },
+        {
+            "russian": "офис",
+            "english": "office"
+        },
+        {
+            "russian": "телефон",
+            "english": "phone, telephone"
+        },
+        {
+            "russian": "тарелка",
+            "english": "plate, bowl"
+        },
+        {
+            "russian": "что",
+            "english": "what"
+        },
+        {
+            "russian": "наш",
+            "english": "our, we"
+        },
+        {
+            "russian": "стол",
+            "english": "table, desk"
+        },
+        {
+            "russian": "лошадь",
+            "english": "horse"
+        },
+        {
+            "russian": "план",
+            "english": "plan"
+        },
+        {
+            "russian": "них",
+            "english": "them, their"
+        },
+        {
+            "russian": "такси",
+            "english": "taxi"
+        },
+        {
+            "russian": "человек",
+            "english": "person, human"
+        },
+        {
+            "russian": "у",
+            "english": "at, near"
+        },
+        {
+            "russian": "у тебя",
+            "english": "you have, at you"
+        },
+        {
+            "russian": "него",
+            "english": "him"
+        },
+        {
+            "russian": "неё",
+            "english": "her"
+        },
+        {
+            "russian": "пиво",
+            "english": "beer"
         }
     ],
     "all phrases": [
@@ -633,6 +757,14 @@
         {
             "russian": "у меня есть",
             "english": "I have"
+        },
+        {
+            "russian": "до свидания",
+            "english": "goodbye (formal)"
+        },
+        {
+            "russian": "до завтра",
+            "english": "see you tomorrow / until tomorrow (casual goodbye)"
         }
     ],
     "all sentences": [
