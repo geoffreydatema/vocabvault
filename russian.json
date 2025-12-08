@@ -96,8 +96,8 @@
             "score": 1
         },
         {
-            "russian": "вилки",
-            "english": "forks",
+            "russian": "ви́лка",
+            "english": "fork",
             "score": 0
         },
         {
@@ -286,11 +286,6 @@
             "score": 0
         },
         {
-            "russian": "где",
-            "english": "where",
-            "score": 0
-        },
-        {
             "russian": "город",
             "english": "city",
             "score": 1
@@ -329,16 +324,6 @@
             "russian": "друг",
             "english": "friend",
             "score": 1
-        },
-        {
-            "russian": "есть",
-            "english": "to eat / eating",
-            "score": 0
-        },
-        {
-            "russian": "ест",
-            "english": "eats",
-            "score": 0
         },
         {
             "russian": "извините",
@@ -386,11 +371,6 @@
             "score": 0
         },
         {
-            "russian": "кто",
-            "english": "who",
-            "score": 1
-        },
-        {
             "russian": "маленький",
             "english": "small",
             "score": 0
@@ -408,11 +388,6 @@
         {
             "russian": "метро",
             "english": "metro / subway",
-            "score": 0
-        },
-        {
-            "russian": "мой",
-            "english": "my",
             "score": 0
         },
         {
@@ -439,21 +414,6 @@
             "russian": "нет",
             "english": "no",
             "score": 1
-        },
-        {
-            "russian": "он",
-            "english": "he",
-            "score": 0
-        },
-        {
-            "russian": "она",
-            "english": "she",
-            "score": 0
-        },
-        {
-            "russian": "они",
-            "english": "they",
-            "score": 2
         },
         {
             "russian": "папа",
@@ -494,11 +454,6 @@
             "russian": "пить",
             "english": "to drink",
             "score": 0
-        },
-        {
-            "russian": "пьёт",
-            "english": "is drinking",
-            "score": 1
         },
         {
             "russian": "Россия",
@@ -556,11 +511,6 @@
             "score": 0
         },
         {
-            "russian": "ты",
-            "english": "you",
-            "score": 0
-        },
-        {
             "russian": "уже",
             "english": "already",
             "score": 0
@@ -586,11 +536,6 @@
             "score": 0
         },
         {
-            "russian": "я",
-            "english": "I",
-            "score": 0
-        },
-        {
             "russian": "яблоко",
             "english": "apple",
             "score": 0
@@ -603,11 +548,6 @@
         {
             "russian": "ночь",
             "english": "night",
-            "score": 0
-        },
-        {
-            "russian": "как",
-            "english": "how",
             "score": 0
         },
         {
@@ -751,11 +691,6 @@
             "score": 0
         },
         {
-            "russian": "мы",
-            "english": "we, are we, we'll",
-            "score": -1
-        },
-        {
             "russian": "велосипед",
             "english": "bicycle",
             "score": 0
@@ -766,23 +701,8 @@
             "score": 1
         },
         {
-            "russian": "нас",
-            "english": "us, than us",
-            "score": 0
-        },
-        {
-            "russian": "у",
-            "english": "with, near, at, have, has, from, by, of",
-            "score": 2
-        },
-        {
             "russian": "дети",
             "english": "children, kids, babies",
-            "score": 0
-        },
-        {
-            "russian": "наше",
-            "english": "our, ours",
             "score": 0
         },
         {
@@ -794,11 +714,6 @@
             "russian": "сестра",
             "english": "sister",
             "score": 0
-        },
-        {
-            "russian": "в",
-            "english": "on, are in, there is",
-            "score": -1
         },
         {
             "russian": "кафе",
@@ -826,16 +741,6 @@
             "score": 0
         },
         {
-            "russian": "что",
-            "english": "what",
-            "score": 0
-        },
-        {
-            "russian": "наш",
-            "english": "our, we",
-            "score": 0
-        },
-        {
             "russian": "стол",
             "english": "table, desk",
             "score": 0
@@ -851,11 +756,6 @@
             "score": 0
         },
         {
-            "russian": "них",
-            "english": "them, their",
-            "score": 0
-        },
-        {
             "russian": "такси",
             "english": "taxi",
             "score": 0
@@ -863,16 +763,6 @@
         {
             "russian": "человек",
             "english": "person, human",
-            "score": 0
-        },
-        {
-            "russian": "у",
-            "english": "at, near",
-            "score": 0
-        },
-        {
-            "russian": "у тебя",
-            "english": "you have, at you",
             "score": 0
         },
         {
@@ -908,11 +798,6 @@
         {
             "russian": "квартира",
             "english": "apartment",
-            "score": 0
-        },
-        {
-            "russian": "ночь",
-            "english": "night",
             "score": 0
         },
         {
@@ -1109,6 +994,156 @@
             "russian": "сто",
             "english": "one hundred",
             "score": 0
+        },
+        {
+            "russian": "я",
+            "english": "I",
+            "score": 0
+        },
+        {
+            "russian": "ты",
+            "english": "you (informal singular)",
+            "score": 0
+        },
+        {
+            "russian": "вы",
+            "english": "you (formal/plural)",
+            "score": 0
+        },
+        {
+            "russian": "он",
+            "english": "he, it (masculine)",
+            "score": 0
+        },
+        {
+            "russian": "она",
+            "english": "she, it (feminine)",
+            "score": 0
+        },
+        {
+            "russian": "оно",
+            "english": "it (neuter)",
+            "score": 0
+        },
+        {
+            "russian": "мы",
+            "english": "we",
+            "score": 0
+        },
+        {
+            "russian": "они",
+            "english": "they",
+            "score": 0
+        },
+        {
+            "russian": "мой (моя, моё, мои)",
+            "english": "my, mine",
+            "score": 0
+        },
+        {
+            "russian": "твой (твоя, твоё, твои)",
+            "english": "your, yours (informal)",
+            "score": 0
+        },
+        {
+            "russian": "наш (наша, наше, наши)",
+            "english": "our, ours",
+            "score": 0
+        },
+        {
+            "russian": "ваш (ваша, ваше, ваши)",
+            "english": "your, yours (formal/plural)",
+            "score": 0
+        },
+        {
+            "russian": "его",
+            "english": "his, its",
+            "score": 0
+        },
+        {
+            "russian": "её",
+            "english": "her, hers",
+            "score": 0
+        },
+        {
+            "russian": "их",
+            "english": "their, theirs",
+            "score": 0
+        },
+        {
+            "russian": "кто",
+            "english": "who",
+            "score": 0
+        },
+        {
+            "russian": "что",
+            "english": "what",
+            "score": 0
+        },
+        {
+            "russian": "где",
+            "english": "where (location)",
+            "score": 0
+        },
+        {
+            "russian": "куда",
+            "english": "where (direction, to where)",
+            "score": 0
+        },
+        {
+            "russian": "когда",
+            "english": "when",
+            "score": 0
+        },
+        {
+            "russian": "почему",
+            "english": "why",
+            "score": 0
+        },
+        {
+            "russian": "как",
+            "english": "how, what (e.g., What is your name?)",
+            "score": 0
+        },
+        {
+            "russian": "какой (какая, какое, какие)",
+            "english": "which, what kind of",
+            "score": 0
+        },
+        {
+            "russian": "в",
+            "english": "in, at, to (takes Prepositional/Accusative case)",
+            "score": 0
+        },
+        {
+            "russian": "на",
+            "english": "on, at, to (takes Prepositional/Accusative case)",
+            "score": 0
+        },
+        {
+            "russian": "с",
+            "english": "with, from (takes Instrumental/Genitive case)",
+            "score": 0
+        },
+        {
+            "russian": "без",
+            "english": "without (takes Genitive case)",
+            "score": 0
+        },
+        {
+            "russian": "только",
+            "english": "only, just",
+            "score": 0
+        },
+        {
+            "russian": "сейчас",
+            "english": "now",
+            "score": 0
+        },
+        {
+            "russian": "ещё",
+            "english": "still, yet, more",
+            "score": 0
         }
     ],
     "all phrases": [
@@ -1171,6 +1206,46 @@
             "russian": "до завтра",
             "english": "see you tomorrow / until tomorrow (casual goodbye)",
             "score": 0
+        },
+        {
+            "russian": "у меня есть",
+            "english": "I have (literally: 'at me there is')",
+            "score": 0
+        },
+        {
+            "russian": "у тебя есть",
+            "english": "you have (informal)",
+            "score": 0
+        },
+        {
+            "russian": "у него есть",
+            "english": "he has",
+            "score": 0
+        },
+        {
+            "russian": "у неё есть",
+            "english": "she has",
+            "score": 0
+        },
+        {
+            "russian": "у нас есть",
+            "english": "we have",
+            "score": 0
+        },
+        {
+            "russian": "у вас есть",
+            "english": "you have (formal/plural)",
+            "score": 0
+        },
+        {
+            "russian": "у них есть",
+            "english": "they have",
+            "score": 0
+        },
+        {
+            "russian": "потому что",
+            "english": "because",
+            "score": 0
         }
     ],
     "all sentences": [
@@ -1232,6 +1307,31 @@
         {
             "russian": "я знаю немного русского",
             "english": "I know a little Russian",
+            "score": 0
+        },
+        {
+            "russian": "У тебя есть кошка?",
+            "english": "Do you have a cat?",
+            "score": 0
+        },
+        {
+            "russian": "Моя вилка там.",
+            "english": "My fork is there.",
+            "score": 0
+        },
+        {
+            "russian": "Он пьёт чай, но я пью кофе.",
+            "english": "He drinks tea, but I drink coffee.",
+            "score": 0
+        },
+        {
+            "russian": "Где наш чай и где ваша вилка?",
+            "english": "Where is our tea and where is your fork?",
+            "score": 0
+        },
+        {
+            "russian": "Почему вилка не на столе?",
+            "english": "Why is the fork not on the table?",
             "score": 0
         }
     ]
