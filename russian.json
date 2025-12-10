@@ -336,11 +336,6 @@
             "score": 4
         },
         {
-            "russian": "здесь",
-            "english": "here",
-            "score": 0
-        },
-        {
             "russian": "и",
             "english": "and",
             "score": 1
@@ -996,81 +991,6 @@
             "score": 1
         },
         {
-            "russian": "я",
-            "english": "I",
-            "score": 0
-        },
-        {
-            "russian": "ты",
-            "english": "you (informal singular)",
-            "score": 2
-        },
-        {
-            "russian": "вы",
-            "english": "you (formal/plural)",
-            "score": 0
-        },
-        {
-            "russian": "он",
-            "english": "he, it (masculine)",
-            "score": 0
-        },
-        {
-            "russian": "она",
-            "english": "she, it (feminine)",
-            "score": 2
-        },
-        {
-            "russian": "оно",
-            "english": "it (neuter)",
-            "score": 0
-        },
-        {
-            "russian": "мы",
-            "english": "we",
-            "score": 0
-        },
-        {
-            "russian": "они",
-            "english": "they",
-            "score": 0
-        },
-        {
-            "russian": "мой (моя, моё, мои)",
-            "english": "my, mine",
-            "score": 0
-        },
-        {
-            "russian": "твой (твоя, твоё, твои)",
-            "english": "your, yours (informal)",
-            "score": 0
-        },
-        {
-            "russian": "наш (наша, наше, наши)",
-            "english": "our, ours",
-            "score": -1
-        },
-        {
-            "russian": "ваш (ваша, ваше, ваши)",
-            "english": "your, yours (formal/plural)",
-            "score": 0
-        },
-        {
-            "russian": "его",
-            "english": "his, its",
-            "score": 0
-        },
-        {
-            "russian": "её",
-            "english": "her, hers",
-            "score": 0
-        },
-        {
-            "russian": "их",
-            "english": "their, theirs",
-            "score": 0
-        },
-        {
             "russian": "кто",
             "english": "who",
             "score": 0
@@ -1102,7 +1022,7 @@
         },
         {
             "russian": "как",
-            "english": "how, what (e.g., What is your name?)",
+            "english": "how, what",
             "score": 0
         },
         {
@@ -1144,6 +1064,146 @@
             "russian": "ещё",
             "english": "still, yet, more",
             "score": -1
+        },
+        {
+            "russian": "я",
+            "english": "I",
+            "score": 0
+        },
+        {
+            "russian": "ты",
+            "english": "you (informal singular)",
+            "score": 0
+        },
+        {
+            "russian": "вы",
+            "english": "yall (formal/plural)",
+            "score": 0
+        },
+        {
+            "russian": "он",
+            "english": "he, it (masculine)",
+            "score": 0
+        },
+        {
+            "russian": "она",
+            "english": "she, it (feminine)",
+            "score": 0
+        },
+        {
+            "russian": "оно",
+            "english": "it (neuter)",
+            "score": 0
+        },
+        {
+            "russian": "мы",
+            "english": "we",
+            "score": 0
+        },
+        {
+            "russian": "они",
+            "english": "they",
+            "score": 0
+        },
+        {
+            "russian": "мой (моя, моё, мои)",
+            "english": "my, mine",
+            "score": 0
+        },
+        {
+            "russian": "твой (твоя, твоё, твои)",
+            "english": "your, yours (informal)",
+            "score": 0
+        },
+        {
+            "russian": "наш (наша, наше, наши)",
+            "english": "our, ours",
+            "score": 0
+        },
+        {
+            "russian": "ваш (ваша, ваше, ваши)",
+            "english": "yalls (formal/plural)",
+            "score": 0
+        },
+        {
+            "russian": "его",
+            "english": "his, its (does not change)",
+            "score": 0
+        },
+        {
+            "russian": "её",
+            "english": "her, hers (does not change)",
+            "score": 0
+        },
+        {
+            "russian": "их",
+            "english": "their, theirs (does not change)",
+            "score": 0
+        },
+        {
+            "russian": "свой (своя, своё, свои)",
+            "english": "one's own (refers back to the subject)",
+            "score": 0
+        },
+        {
+            "russian": "но",
+            "english": "but",
+            "score": 0
+        },
+        {
+            "russian": "потому что",
+            "english": "because",
+            "score": 0
+        },
+        {
+            "russian": "если",
+            "english": "if",
+            "score": 0
+        },
+        {
+            "russian": "чтобы",
+            "english": "in order to, so that",
+            "score": 0
+        },
+        {
+            "russian": "поэтому",
+            "english": "therefore, that's why, so",
+            "score": 0
+        },
+        {
+            "russian": "завтра",
+            "english": "tomorrow",
+            "score": 0
+        },
+        {
+            "russian": "вчера",
+            "english": "yesterday",
+            "score": 0
+        },
+        {
+            "russian": "всегда",
+            "english": "always",
+            "score": 0
+        },
+        {
+            "russian": "обычно",
+            "english": "usually",
+            "score": 0
+        },
+        {
+            "russian": "никогда",
+            "english": "never",
+            "score": 0
+        },
+        {
+            "russian": "здесь / тут",
+            "english": "here",
+            "score": 0
+        },
+        {
+            "russian": "оттуда",
+            "english": "from there",
+            "score": 0
         }
     ],
     "all phrases": [
@@ -1193,11 +1253,6 @@
             "score": 1
         },
         {
-            "russian": "у меня есть",
-            "english": "I have",
-            "score": 0
-        },
-        {
             "russian": "до свидания",
             "english": "goodbye (formal)",
             "score": 1
@@ -1234,17 +1289,12 @@
         },
         {
             "russian": "у вас есть",
-            "english": "you have (formal/plural)",
+            "english": "yall have (formal/plural)",
             "score": 0
         },
         {
             "russian": "у них есть",
             "english": "they have",
-            "score": 0
-        },
-        {
-            "russian": "потому что",
-            "english": "because",
             "score": 0
         }
     ],
