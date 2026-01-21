@@ -38,7 +38,7 @@
         {
             "russian": "хорошо",
             "english": "good / fine",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "скачать",
@@ -48,7 +48,7 @@
         {
             "russian": "удалить",
             "english": "to delete / remove",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "загрузить",
@@ -67,7 +67,7 @@
         },
         {
             "russian": "править",
-            "english": "to rule / to govern / to edit",
+            "english": "to edit / to correct",
             "score": 0
         },
         {
@@ -96,7 +96,7 @@
             "score": 1
         },
         {
-            "russian": "ви́лка",
+            "russian": "вилка",
             "english": "fork",
             "score": 1
         },
@@ -137,7 +137,7 @@
         },
         {
             "russian": "политика",
-            "english": "politics",
+            "english": "politics / policy",
             "score": 0
         },
         {
@@ -198,7 +198,7 @@
         {
             "russian": "пирог",
             "english": "pie",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "рецепт",
@@ -231,7 +231,7 @@
             "score": 0
         },
         {
-            "russian": "цыплёнок",
+            "russian": "курица",
             "english": "chicken",
             "score": -1
         },
@@ -241,7 +241,7 @@
             "score": 1
         },
         {
-            "russian": "шейк",
+            "russian": "молочный коктейль / шейк",
             "english": "milkshake",
             "score": 1
         },
@@ -304,11 +304,6 @@
             "russian": "бизнес",
             "english": "business",
             "score": 2
-        },
-        {
-            "russian": "милый",
-            "english": "nice",
-            "score": -1
         },
         {
             "russian": "доктор",
@@ -408,7 +403,7 @@
         {
             "russian": "нет",
             "english": "no",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "папа",
@@ -503,7 +498,7 @@
         {
             "russian": "тренер",
             "english": "coach",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "уже",
@@ -537,7 +532,7 @@
         },
         {
             "russian": "добрый",
-            "english": "good / kind",
+            "english": "kind",
             "score": 1
         },
         {
@@ -653,7 +648,7 @@
         {
             "russian": "сентябрь",
             "english": "September",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "октябрь",
@@ -776,6 +771,11 @@
             "score": 0
         },
         {
+            "russian": "обед",
+            "english": "lunch",
+            "score": 0
+        },
+        {
             "russian": "ужин",
             "english": "supper / dinner / evening meal",
             "score": 2
@@ -883,7 +883,7 @@
         {
             "russian": "семь",
             "english": "seven",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "восемь",
@@ -943,7 +943,7 @@
         {
             "russian": "девятнадцать",
             "english": "nineteen",
-            "score": 0
+            "score": -1
         },
         {
             "russian": "двадцать",
@@ -973,7 +973,7 @@
         {
             "russian": "семьдесят",
             "english": "seventy",
-            "score": 1
+            "score": 0
         },
         {
             "russian": "восемьдесят",
@@ -1077,7 +1077,7 @@
         },
         {
             "russian": "вы",
-            "english": "yall (formal/plural)",
+            "english": "you (formal/plural)",
             "score": 0
         },
         {
@@ -1122,7 +1122,7 @@
         },
         {
             "russian": "ваш (ваша, ваше, ваши)",
-            "english": "yalls (formal/plural)",
+            "english": "you (formal/plural)",
             "score": 0
         },
         {
@@ -1193,7 +1193,7 @@
         {
             "russian": "никогда",
             "english": "never",
-            "score": 0
+            "score": -1
         },
         {
             "russian": "здесь / тут",
@@ -1203,6 +1203,11 @@
         {
             "russian": "оттуда",
             "english": "from there",
+            "score": 0
+        },
+        {
+            "russian": "добавить",
+            "english": "to add (perfective aspect)",
             "score": 0
         }
     ],
@@ -1289,7 +1294,7 @@
         },
         {
             "russian": "у вас есть",
-            "english": "yall have (formal/plural)",
+            "english": "you have (formal/plural)",
             "score": 0
         },
         {
@@ -1355,8 +1360,8 @@
             "score": 0
         },
         {
-            "russian": "я знаю немного русского",
-            "english": "I know a little Russian",
+            "russian": "Я немного говорю по-русски",
+            "english": "I speak a little Russian",
             "score": 0
         },
         {
@@ -1385,7 +1390,7 @@
             "score": 0
         },
         {
-            "russian": "Я хочу́ чай.",
+            "russian": "Я хочу чай.",
             "english": "I want tea.",
             "score": 0
         },
@@ -1395,7 +1400,7 @@
             "score": 0
         },
         {
-            "russian": "Вы говори́те по-ру́сски?",
+            "russian": "Вы говорите по-русски?",
             "english": "Do you speak Russian?",
             "score": 0
         },
@@ -1405,22 +1410,22 @@
             "score": 0
         },
         {
-            "russian": "Она моя́ подру́га.",
+            "russian": "Она моя подруга.",
             "english": "She is my friend.",
             "score": 0
         },
         {
-            "russian": "Где окно́? Оно там.",
+            "russian": "Где окно? Оно там.",
             "english": "Where is the window? It is there.",
             "score": 0
         },
         {
-            "russian": "Мы идём домо́й.",
+            "russian": "Мы идём домой.",
             "english": "We are going home.",
             "score": 0
         },
         {
-            "russian": "Они пью́т ко́фе.",
+            "russian": "Они пьют кофе.",
             "english": "They are drinking coffee.",
             "score": 0
         },
@@ -1430,32 +1435,32 @@
             "score": 0
         },
         {
-            "russian": "Где твоя́ ви́лка?",
+            "russian": "Где твоя вилка?",
             "english": "Where is your fork?",
             "score": 0
         },
         {
-            "russian": "Наш чай холо́дный.",
+            "russian": "Наш чай холодный.",
             "english": "Our tea is cold.",
             "score": 0
         },
         {
-            "russian": "Ваша ко́шка большая́?",
+            "russian": "Ваша кошка большая?",
             "english": "Is your cat big?",
             "score": 0
         },
         {
-            "russian": "Его́ мяч там.",
+            "russian": "Его мяч там.",
             "english": "His ball is there.",
             "score": 0
         },
         {
-            "russian": "Это её пла́тье.",
+            "russian": "Это её платье.",
             "english": "This is her dress.",
             "score": 0
         },
         {
-            "russian": "Их маши́на бы́страя.",
+            "russian": "Их машина быстрая.",
             "english": "Their car is fast.",
             "score": 0
         },
@@ -1475,62 +1480,62 @@
             "score": 0
         },
         {
-            "russian": "Куда́ ты идёшь?",
+            "russian": "Куда ты идёшь?",
             "english": "Where are you going (to)?",
             "score": 0
         },
         {
-            "russian": "Когда́ мы идём?",
+            "russian": "Когда мы идём?",
             "english": "When are we going?",
             "score": 0
         },
         {
-            "russian": "Почему́ ты здесь?",
+            "russian": "Почему ты здесь?",
             "english": "Why are you here?",
             "score": 0
         },
         {
-            "russian": "Как твои́ дела́?",
+            "russian": "Как твои дела?",
             "english": "How are you (How are your affairs)?",
             "score": 0
         },
         {
-            "russian": "Како́й чай ты хо́чешь?",
+            "russian": "Какой чай ты хочешь?",
             "english": "Which tea do you want?",
             "score": 0
         },
         {
-            "russian": "Я в до́ме.",
+            "russian": "Я в доме.",
             "english": "I am in the house.",
             "score": 0
         },
         {
-            "russian": "Ви́лка на столе́.",
+            "russian": "Вилка на столе.",
             "english": "The fork is on the table.",
             "score": 0
         },
         {
-            "russian": "Я пью чай с лимо́ном.",
+            "russian": "Я пью чай с лимоном.",
             "english": "I drink tea with lemon.",
             "score": 0
         },
         {
-            "russian": "Он ест без ви́лки.",
+            "russian": "Он ест без вилки.",
             "english": "He is eating without a fork.",
             "score": 0
         },
         {
-            "russian": "То́лько я здесь.",
+            "russian": "Только я здесь.",
             "english": "Only I am here.",
             "score": 0
         },
         {
-            "russian": "Сейча́с я за́нят.",
+            "russian": "Сейчас я занят.",
             "english": "Now I am busy.",
             "score": 0
         },
         {
-            "russian": "Хо́чешь ещё ча́ю?",
+            "russian": "Хочешь ещё чаю?",
             "english": "Do you want more tea?",
             "score": 0
         }
