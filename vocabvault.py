@@ -16,8 +16,7 @@ class FlashcardDialog(QDialog):
     def __init__(self, items, max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Practice Mode")
-        # UPDATED: Wider window (approx 2/3 width of a standard view)
-        self.resize(900, 600)
+        self.resize(400, 300)
         
         self.items = items
         self.max_score = max_score
@@ -142,7 +141,7 @@ class MatchingDialog(QDialog):
     def __init__(self, items, max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Matching Exercise")
-        self.resize(500, 700) 
+        self.resize(600, 600) 
         
         # We process items in chunks of 10
         self.all_items = items
