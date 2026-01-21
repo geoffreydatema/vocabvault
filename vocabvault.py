@@ -2,21 +2,25 @@ import sys
 import json
 import os
 import random
+import time
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QHBoxLayout, QTabWidget, QLineEdit, QPushButton, 
                                QTableWidget, QTableWidgetItem, QHeaderView, 
                                QMessageBox, QGridLayout, QSizePolicy, QLabel,
-                               QCheckBox, QSpinBox, QDialog)
-from PySide6.QtGui import QFont, QColor
-from PySide6.QtCore import Qt
+                               QCheckBox, QSpinBox, QDialog, QFrame, QScrollArea)
+from PySide6.QtGui import QFont, QColor, QPalette
+from PySide6.QtCore import Qt, QTimer
 
+# --- FLASHCARD DIALOG ---
 class FlashcardDialog(QDialog):
     def __init__(self, items, max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Practice Mode")
-        self.resize(600, 450)
+        # UPDATED: Wider window (approx 2/3 width of a standard view)
+        self.resize(900, 600)
+        
         self.items = items
-        self.max_score = max_score  # Store the cap
+        self.max_score = max_score
         self.current_index = 0
         
         # UI Setup
@@ -133,6 +137,216 @@ class FlashcardDialog(QDialog):
         else:
             self.accept() # Close dialog
 
+# --- MATCHING DIALOG ---
+class MatchingDialog(QDialog):
+    def __init__(self, items, max_score=10, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Matching Exercise")
+        self.resize(500, 700) 
+        
+        # We process items in chunks of 10
+        self.all_items = items
+        self.max_score = max_score
+        self.round_size = 10
+        self.current_round = 0
+        self.total_rounds = (len(items) + self.round_size - 1) // self.round_size
+        
+        self.selected_russian = None 
+        self.selected_english = None 
+        
+        # UI Setup
+        self.layout = QVBoxLayout(self)
+        
+        # Header
+        self.header_label = QLabel()
+        self.header_label.setAlignment(Qt.AlignCenter)
+        self.header_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #ddd;")
+        self.layout.addWidget(self.header_label)
+        
+        # Game Area
+        self.game_area = QWidget()
+        self.grid = QGridLayout(self.game_area)
+        self.layout.addWidget(self.game_area)
+        
+        # Status/Result message
+        self.status_label = QLabel("Select a pair to match.")
+        self.status_label.setAlignment(Qt.AlignCenter)
+        self.status_label.setStyleSheet("font-size: 16px; color: #aaa; margin-top: 10px;")
+        self.layout.addWidget(self.status_label)
+
+        # Next Round / Finish Button
+        self.action_btn = QPushButton("Next Round")
+        self.action_btn.setMinimumHeight(40)
+        self.action_btn.clicked.connect(self.next_round)
+        self.action_btn.hide()
+        self.layout.addWidget(self.action_btn)
+        
+        self.start_round()
+
+    def start_round(self):
+        """Prepares the grid for the current chunk of words."""
+        self.action_btn.hide()
+        self.status_label.setText("Select a Russian word and its English definition.")
+        
+        # Clear grid
+        for i in reversed(range(self.grid.count())): 
+            self.grid.itemAt(i).widget().setParent(None)
+            
+        # Get chunk
+        start = self.current_round * self.round_size
+        end = start + self.round_size
+        current_items = self.all_items[start:end]
+        
+        self.header_label.setText(f"Round {self.current_round + 1} of {self.total_rounds}")
+        
+        # Create lists for columns
+        russian_btns = []
+        english_btns = []
+        
+        for item in current_items:
+            # Russian Button
+            r_btn = QPushButton(item['russian'])
+            r_btn.setMinimumHeight(50)
+            r_btn.setCheckable(True)
+            r_btn.setStyleSheet(self.get_btn_style("neutral"))
+            r_btn.item_data = item 
+            r_btn.type = "russian"
+            r_btn.clicked.connect(lambda checked=False, b=r_btn: self.handle_click(b))
+            russian_btns.append(r_btn)
+            
+            # English Button
+            e_btn = QPushButton(item['english'])
+            e_btn.setMinimumHeight(50)
+            e_btn.setCheckable(True)
+            e_btn.setStyleSheet(self.get_btn_style("neutral"))
+            e_btn.item_data = item
+            e_btn.type = "english"
+            e_btn.clicked.connect(lambda checked=False, b=e_btn: self.handle_click(b))
+            english_btns.append(e_btn)
+            
+        # Shuffle English buttons so they don't align perfectly
+        random.shuffle(english_btns)
+        
+        # Add to Grid (Left: Russian, Right: English)
+        for i, r_btn in enumerate(russian_btns):
+            self.grid.addWidget(r_btn, i, 0)
+            
+        for i, e_btn in enumerate(english_btns):
+            self.grid.addWidget(e_btn, i, 1)
+            
+        self.remaining_pairs = len(current_items)
+
+    def handle_click(self, btn):
+        if (btn == self.selected_russian) or (btn == self.selected_english):
+            btn.setChecked(False)
+            btn.setStyleSheet(self.get_btn_style("neutral"))
+            if btn.type == "russian": self.selected_russian = None
+            else: self.selected_english = None
+            return
+
+        # Handle Selection
+        if btn.type == "russian":
+            if self.selected_russian:
+                self.selected_russian.setChecked(False)
+                self.selected_russian.setStyleSheet(self.get_btn_style("neutral"))
+            self.selected_russian = btn
+            btn.setStyleSheet(self.get_btn_style("selected"))
+            
+        elif btn.type == "english":
+            if self.selected_english:
+                self.selected_english.setChecked(False)
+                self.selected_english.setStyleSheet(self.get_btn_style("neutral"))
+            self.selected_english = btn
+            btn.setStyleSheet(self.get_btn_style("selected"))
+
+        if self.selected_russian and self.selected_english:
+            self.validate_match()
+
+    def validate_match(self):
+        r_item = self.selected_russian.item_data
+        e_item = self.selected_english.item_data
+        
+        is_match = (r_item == e_item)
+        
+        if is_match:
+            self.selected_russian.setStyleSheet(self.get_btn_style("correct"))
+            self.selected_english.setStyleSheet(self.get_btn_style("correct"))
+            self.selected_russian.setEnabled(False)
+            self.selected_english.setEnabled(False)
+            
+            # Score +1
+            current = r_item.get('score', 0)
+            r_item['score'] = min(current + 1, self.max_score)
+            
+            self.selected_russian = None
+            self.selected_english = None
+            self.remaining_pairs -= 1
+            
+            if self.remaining_pairs == 0:
+                self.finish_round()
+                
+        else:
+            self.status_label.setText("Incorrect match! Try again.")
+            self.status_label.setStyleSheet("font-size: 16px; color: #ff5555; font-weight: bold;")
+            
+            self.selected_russian.setStyleSheet(self.get_btn_style("wrong"))
+            self.selected_english.setStyleSheet(self.get_btn_style("wrong"))
+            
+            # Score -1
+            r_item['score'] = r_item.get('score', 0) - 1
+            e_item['score'] = e_item.get('score', 0) - 1
+
+            QApplication.processEvents() 
+            
+            self.selected_russian.setChecked(False)
+            self.selected_english.setChecked(False)
+            
+            QTimer.singleShot(500, lambda: self.reset_wrong_buttons(self.selected_russian, self.selected_english))
+            
+            self.selected_russian = None
+            self.selected_english = None
+
+    def reset_wrong_buttons(self, btn1, btn2):
+        try:
+            if btn1: btn1.setStyleSheet(self.get_btn_style("neutral"))
+            if btn2: btn2.setStyleSheet(self.get_btn_style("neutral"))
+        except:
+            pass
+
+    def finish_round(self):
+        self.status_label.setText("Round Complete!")
+        self.status_label.setStyleSheet("font-size: 18px; color: #55ff55; font-weight: bold;")
+        
+        if self.current_round < self.total_rounds - 1:
+            self.action_btn.setText("Start Next Round")
+            self.action_btn.show()
+        else:
+            self.action_btn.setText("Finish Exercise")
+            self.action_btn.show()
+
+    def next_round(self):
+        if self.current_round < self.total_rounds - 1:
+            self.current_round += 1
+            self.start_round()
+        else:
+            self.accept()
+
+    def get_btn_style(self, state):
+        # UPDATED: Increased font-size to 20px
+        base = """
+            QPushButton { border-radius: 8px; font-size: 20px; font-weight: bold; padding: 5px; border: 2px solid #555; }
+        """
+        if state == "neutral":
+            return base + "QPushButton { background-color: #333; font-weight: normal; color: white; } QPushButton:hover { background-color: #444; }"
+        elif state == "selected":
+            return base + "QPushButton { background-color: #fbc02d; color: black; border: 2px solid #ffeb3b; }"
+        elif state == "correct":
+            return base + "QPushButton { background-color: #2e7d32; color: white; border: 2px solid #4caf50; }"
+        elif state == "wrong":
+            return base + "QPushButton { background-color: #c62828; color: white; border: 2px solid #ff5252; }"
+        return base
+
+# --- MAIN WINDOW ---
 class VocabVault(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -268,33 +482,58 @@ class VocabVault(QMainWindow):
         
         self.stats_layout.addSpacing(20)
         
-        practice_label = QLabel("Practice Flashcards:")
-        practice_label.setStyleSheet("font-weight: bold; font-size: 14px;")
-        self.stats_layout.addWidget(practice_label)
+        # --- FLASHCARD PRACTICE ROW ---
+        flashcard_label = QLabel("Practice Flashcards:")
+        flashcard_label.setStyleSheet("font-weight: bold; font-size: 14px;")
+        self.stats_layout.addWidget(flashcard_label)
         
-        # --- NEW PRACTICE BUTTONS AREA ---
-        practice_row = QHBoxLayout()
+        fc_row = QHBoxLayout()
         self.card_count_spin = QSpinBox()
         self.card_count_spin.setRange(1, 100)
         self.card_count_spin.setValue(10)
-        self.card_count_spin.setFixedWidth(70)
+        self.card_count_spin.setFixedWidth(60)
         self.card_count_spin.setMinimumHeight(35)
         
-        # Button 1: Random
-        self.btn_random = QPushButton("Practice Random")
-        self.btn_random.setMinimumHeight(35)
-        self.btn_random.clicked.connect(lambda: self.start_practice(mode="random"))
+        self.btn_fc_random = QPushButton("Random")
+        self.btn_fc_random.setMinimumHeight(35)
+        self.btn_fc_random.clicked.connect(lambda: self.start_practice(mode="random"))
 
-        # Button 2: Weak
-        self.btn_weak = QPushButton("Practice Weak")
-        self.btn_weak.setMinimumHeight(35)
-        self.btn_weak.clicked.connect(lambda: self.start_practice(mode="weak"))
+        self.btn_fc_weak = QPushButton("Weak")
+        self.btn_fc_weak.setMinimumHeight(35)
+        self.btn_fc_weak.clicked.connect(lambda: self.start_practice(mode="weak"))
 
-        practice_row.addWidget(self.card_count_spin)
-        practice_row.addWidget(self.btn_random)
-        practice_row.addWidget(self.btn_weak)
+        fc_row.addWidget(self.card_count_spin)
+        fc_row.addWidget(self.btn_fc_random)
+        fc_row.addWidget(self.btn_fc_weak)
+        self.stats_layout.addLayout(fc_row)
+
+        self.stats_layout.addSpacing(10)
+
+        # --- MATCHING GAME ROW ---
+        matching_label = QLabel("Matching Exercise (10 pairs/card):")
+        matching_label.setStyleSheet("font-weight: bold; font-size: 14px;")
+        self.stats_layout.addWidget(matching_label)
+
+        match_row = QHBoxLayout()
+        self.match_count_spin = QSpinBox()
+        self.match_count_spin.setRange(1, 10) # 1 to 10 rounds (10 to 100 words)
+        self.match_count_spin.setValue(1) # Default 1 round
+        self.match_count_spin.setFixedWidth(60)
+        self.match_count_spin.setMinimumHeight(35)
+
+        self.btn_match_random = QPushButton("Random")
+        self.btn_match_random.setMinimumHeight(35)
+        self.btn_match_random.clicked.connect(lambda: self.start_matching(mode="random"))
+
+        self.btn_match_weak = QPushButton("Weak")
+        self.btn_match_weak.setMinimumHeight(35)
+        self.btn_match_weak.clicked.connect(lambda: self.start_matching(mode="weak"))
+
+        match_row.addWidget(self.match_count_spin)
+        match_row.addWidget(self.btn_match_random)
+        match_row.addWidget(self.btn_match_weak)
+        self.stats_layout.addLayout(match_row)
         
-        self.stats_layout.addLayout(practice_row)
         self.stats_layout.addStretch()
         
         input_grid.addWidget(self.stats_container, 1, 1, alignment=Qt.AlignTop)
@@ -317,25 +556,49 @@ class VocabVault(QMainWindow):
             
         count = self.card_count_spin.value()
         
-        # --- SELECTION LOGIC ---
         if mode == "weak":
-            # 1. Sort by score (ascending: lowest score first)
-            # 2. Slice the list to get the worst 'count' items
             sorted_items = sorted(items, key=lambda x: x.get('score', 0))
             selected_items = sorted_items[:count]
-            # 3. Shuffle this specific weak batch so you don't memorize the order
             random.shuffle(selected_items)
-            
         else:
-            # "random" mode
             sample_size = min(count, len(items))
             selected_items = random.sample(items, sample_size)
             
-        # Run Dialog
         dialog = FlashcardDialog(selected_items, max_score=self.MAX_SCORE, parent=self)
         dialog.exec()
         
-        # AFTER Dialog closes: Save scores and update UI
+        self.save_data()
+        self.refresh_table(current_category)
+        self.update_stats()
+
+    def start_matching(self, mode="random"):
+        current_index = self.tabs.currentIndex()
+        current_category = self.categories[current_index]
+        items = self.data[current_category]
+        
+        if not items:
+            QMessageBox.information(self, "No Items", f"No items in '{current_category}' to practice!")
+            return
+        
+        rounds = self.match_count_spin.value()
+        total_items_needed = rounds * 10
+        
+        # Cap at available items
+        count = min(total_items_needed, len(items))
+        
+        if count == 0:
+            return
+
+        if mode == "weak":
+            sorted_items = sorted(items, key=lambda x: x.get('score', 0))
+            selected_items = sorted_items[:count]
+            random.shuffle(selected_items)
+        else:
+            selected_items = random.sample(items, count)
+
+        dialog = MatchingDialog(selected_items, max_score=self.MAX_SCORE, parent=self)
+        dialog.exec()
+        
         self.save_data()
         self.refresh_table(current_category)
         self.update_stats()
@@ -410,7 +673,6 @@ class VocabVault(QMainWindow):
         return container
 
     def update_stats(self):
-        # 1. Counts per category and calculate Max Possible Score
         parts = []
         total_items_count = 0
         
@@ -420,16 +682,13 @@ class VocabVault(QMainWindow):
             display_name = category.replace("all ", "").title()
             parts.append(f"{display_name}: {count}")
         
-        # 2. Total Current Score Calculation
         current_total_score = 0
         for category in self.categories:
             for item in self.data[category]:
                 current_total_score += item.get('score', 0)
         
-        # 3. Calculate Total Possible Max Score
         max_possible_score = total_items_count * self.MAX_SCORE
         
-        # Color code the total score string
         score_color = "green" if current_total_score >= 0 else "red"
         
         stats_text = "   |   ".join(parts)
@@ -468,17 +727,13 @@ class VocabVault(QMainWindow):
         for row_idx, item in enumerate(items):
             table.insertRow(row_idx)
             
-            # Russian
             table.setItem(row_idx, 0, QTableWidgetItem(item.get("russian", "")))
-            # English
             table.setItem(row_idx, 1, QTableWidgetItem(item.get("english", "")))
             
-            # Score (New Column)
             score = item.get("score", 0)
             score_item = QTableWidgetItem(str(score))
             score_item.setTextAlignment(Qt.AlignCenter)
             
-            # Color code the score
             if score > 0:
                 score_item.setForeground(QColor("green"))
             elif score < 0:
@@ -486,7 +741,6 @@ class VocabVault(QMainWindow):
                 
             table.setItem(row_idx, 2, score_item)
             
-            # Delete Button
             container_widget = QWidget()
             layout = QHBoxLayout(container_widget)
             layout.setContentsMargins(0, 0, 0, 0)
