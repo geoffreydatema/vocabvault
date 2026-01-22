@@ -361,7 +361,7 @@ class VocabVault(QMainWindow):
         self.setFont(font)
         
         self.filename = "russian.json"
-        self.categories = ["all words", "all phrases", "all sentences"]
+        self.categories = ["words", "pronouns", "phrases", "sentences"]
         self.tables = {} 
         self.letter_buttons = [] 
         self.is_shifted = False
