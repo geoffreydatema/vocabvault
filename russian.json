@@ -1564,12 +1564,12 @@
         {
             "russian": "она",
             "english": "she (Subject)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "оно",
             "english": "it (Subject - neuter)",
-            "score": -1
+            "score": 0
         },
         {
             "russian": "мы",
@@ -1599,7 +1599,7 @@
         {
             "russian": "ваш (ваша, ваше, ваши)",
             "english": "your, yours (formal/plural)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "свой (своя, своё, свои)",
@@ -1609,7 +1609,7 @@
         {
             "russian": "меня",
             "english": "me (Direct Object: 'He sees me')",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "тебя",
@@ -1624,17 +1624,17 @@
         {
             "russian": "её",
             "english": "her (Object) / her (Possessive)",
-            "score": -2
+            "score": -1
         },
         {
             "russian": "нас",
             "english": "us (Direct Object: 'They see us')",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "вас",
             "english": "you (Direct Object: 'We see you' - formal/plural)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "их",
@@ -1659,7 +1659,7 @@
         {
             "russian": "ей",
             "english": "to her (used in: 'She likes', 'She needs')",
-            "score": -3
+            "score": -2
         },
         {
             "russian": "нам",
@@ -1684,7 +1684,7 @@
         {
             "russian": "у тебя",
             "english": "you have (lit: at you - informal)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "у него",
@@ -1744,7 +1744,7 @@
         {
             "russian": "тот (та, то, те)",
             "english": "that (masc, fem, neut, plural)",
-            "score": 0
+            "score": 1
         }
     ]
 }
