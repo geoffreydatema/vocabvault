@@ -481,12 +481,13 @@ class VocabVault(QMainWindow):
         input_grid.addWidget(self.add_button, 0, 2)
         
         self.keyboard_widget = self.create_keyboard()
-        # Initial keyboard visibility based on default language
-        self.keyboard_widget.setVisible(self.lang_config[self.current_lang]["show_keyboard"])
+        
         input_grid.addWidget(self.keyboard_widget, 1, 0, alignment=Qt.AlignTop | Qt.AlignLeft)
         
+        self.keyboard_widget.setVisible(self.lang_config[self.current_lang]["show_keyboard"])
+        
         # Stats & Practice Container
-        self.stats_container = QWidget()
+        self.stats_container = QWidget(self)
         self.stats_layout = QVBoxLayout(self.stats_container)
         self.stats_layout.setContentsMargins(10, 10, 0, 0)
         
@@ -670,7 +671,7 @@ class VocabVault(QMainWindow):
             table.setColumnHidden(1, not checked)
 
     def create_keyboard(self):
-        container = QWidget()
+        container = QWidget(self)
         layout = QVBoxLayout(container)
         layout.setContentsMargins(0, 5, 0, 0)
         layout.setSpacing(2)
