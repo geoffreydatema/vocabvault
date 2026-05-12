@@ -2,23 +2,24 @@ import sys
 import json
 import os
 import random
-import time
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QHBoxLayout, QTabWidget, QLineEdit, QPushButton, 
                                QTableWidget, QTableWidgetItem, QHeaderView, 
                                QMessageBox, QGridLayout, QSizePolicy, QLabel,
-                               QCheckBox, QSpinBox, QDialog, QFrame, QScrollArea)
-from PySide6.QtGui import QFont, QColor, QPalette
+                               QCheckBox, QSpinBox, QDialog, QComboBox)
+from PySide6.QtGui import QFont, QColor
 from PySide6.QtCore import Qt, QTimer
 
 # --- FLASHCARD DIALOG ---
 class FlashcardDialog(QDialog):
-    def __init__(self, items, max_score=10, parent=None):
+    def __init__(self, items, target_key="russian", native_key="english", max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Practice Mode")
-        self.resize(400, 300)
+        self.resize(900, 600)
         
         self.items = items
+        self.target_key = target_key
+        self.native_key = native_key
         self.max_score = max_score
         self.current_index = 0
         
@@ -36,22 +37,22 @@ class FlashcardDialog(QDialog):
         self.layout.addLayout(self.card_container)
         self.layout.addStretch()
         
-        # Russian Text (The Question)
-        self.russian_label = QLabel()
-        self.russian_label.setAlignment(Qt.AlignCenter)
-        self.russian_label.setWordWrap(True)
-        self.russian_label.setStyleSheet("font-size: 32px; font-weight: bold; color: white;")
-        self.card_container.addWidget(self.russian_label)
+        # Target Text (The Question)
+        self.target_label = QLabel()
+        self.target_label.setAlignment(Qt.AlignCenter)
+        self.target_label.setWordWrap(True)
+        self.target_label.setStyleSheet("font-size: 32px; font-weight: bold; color: white;")
+        self.card_container.addWidget(self.target_label)
         
         # Spacing
         self.card_container.addSpacing(20)
         
-        # English Text (The Answer)
-        self.english_label = QLabel()
-        self.english_label.setAlignment(Qt.AlignCenter)
-        self.english_label.setWordWrap(True)
-        self.english_label.setStyleSheet("font-size: 24px; color: #aaa; font-style: italic;")
-        self.card_container.addWidget(self.english_label)
+        # Native Text (The Answer)
+        self.native_label = QLabel()
+        self.native_label.setAlignment(Qt.AlignCenter)
+        self.native_label.setWordWrap(True)
+        self.native_label.setStyleSheet("font-size: 24px; color: #aaa; font-style: italic;")
+        self.card_container.addWidget(self.native_label)
         
         self.layout.addStretch()
         
@@ -88,11 +89,11 @@ class FlashcardDialog(QDialog):
     def show_card(self):
         """Display the current card and reset buttons."""
         item = self.items[self.current_index]
-        self.russian_label.setText(item['russian'])
-        self.english_label.setText(item['english'])
+        self.target_label.setText(item.get(self.target_key, ''))
+        self.native_label.setText(item.get(self.native_key, ''))
         
         # Hide answer initially
-        self.english_label.hide()
+        self.native_label.hide()
         
         # Show Choice buttons, Hide Next button
         self.btn_know.show()
@@ -117,7 +118,7 @@ class FlashcardDialog(QDialog):
 
     def reveal_answer(self):
         """Shows the answer and switches to Next button."""
-        self.english_label.show()
+        self.native_label.show()
         
         # Hide choices, show Next
         self.btn_know.hide()
@@ -134,24 +135,25 @@ class FlashcardDialog(QDialog):
             self.current_index += 1
             self.show_card()
         else:
-            self.accept() # Close dialog
+            self.accept()
 
 # --- MATCHING DIALOG ---
 class MatchingDialog(QDialog):
-    def __init__(self, items, max_score=10, parent=None):
+    def __init__(self, items, target_key="russian", native_key="english", max_score=10, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Matching Exercise")
-        self.resize(600, 600) 
+        self.resize(500, 700) 
         
-        # We process items in chunks of 10
         self.all_items = items
+        self.target_key = target_key
+        self.native_key = native_key
         self.max_score = max_score
         self.round_size = 10
         self.current_round = 0
         self.total_rounds = (len(items) + self.round_size - 1) // self.round_size
         
-        self.selected_russian = None 
-        self.selected_english = None 
+        self.selected_target = None 
+        self.selected_native = None 
         
         # UI Setup
         self.layout = QVBoxLayout(self)
@@ -185,7 +187,7 @@ class MatchingDialog(QDialog):
     def start_round(self):
         """Prepares the grid for the current chunk of words."""
         self.action_btn.hide()
-        self.status_label.setText("Select a Russian word and its English definition.")
+        self.status_label.setText("Select a word and its definition.")
         
         # Clear grid
         for i in reversed(range(self.grid.count())): 
@@ -199,86 +201,86 @@ class MatchingDialog(QDialog):
         self.header_label.setText(f"Round {self.current_round + 1} of {self.total_rounds}")
         
         # Create lists for columns
-        russian_btns = []
-        english_btns = []
+        target_btns = []
+        native_btns = []
         
         for item in current_items:
-            # Russian Button
-            r_btn = QPushButton(item['russian'])
-            r_btn.setMinimumHeight(50)
-            r_btn.setCheckable(True)
-            r_btn.setStyleSheet(self.get_btn_style("neutral"))
-            r_btn.item_data = item 
-            r_btn.type = "russian"
-            r_btn.clicked.connect(lambda checked=False, b=r_btn: self.handle_click(b))
-            russian_btns.append(r_btn)
+            # Target Button (Left Column)
+            t_btn = QPushButton(item.get(self.target_key, ''))
+            t_btn.setMinimumHeight(50)
+            t_btn.setCheckable(True)
+            t_btn.setStyleSheet(self.get_btn_style("neutral"))
+            t_btn.item_data = item 
+            t_btn.type = "target"
+            t_btn.clicked.connect(lambda checked=False, b=t_btn: self.handle_click(b))
+            target_btns.append(t_btn)
             
-            # English Button
-            e_btn = QPushButton(item['english'])
-            e_btn.setMinimumHeight(50)
-            e_btn.setCheckable(True)
-            e_btn.setStyleSheet(self.get_btn_style("neutral"))
-            e_btn.item_data = item
-            e_btn.type = "english"
-            e_btn.clicked.connect(lambda checked=False, b=e_btn: self.handle_click(b))
-            english_btns.append(e_btn)
+            # Native Button (Right Column)
+            n_btn = QPushButton(item.get(self.native_key, ''))
+            n_btn.setMinimumHeight(50)
+            n_btn.setCheckable(True)
+            n_btn.setStyleSheet(self.get_btn_style("neutral"))
+            n_btn.item_data = item
+            n_btn.type = "native"
+            n_btn.clicked.connect(lambda checked=False, b=n_btn: self.handle_click(b))
+            native_btns.append(n_btn)
             
-        # Shuffle English buttons so they don't align perfectly
-        random.shuffle(english_btns)
+        # Shuffle Native buttons so they don't align perfectly
+        random.shuffle(native_btns)
         
-        # Add to Grid (Left: Russian, Right: English)
-        for i, r_btn in enumerate(russian_btns):
-            self.grid.addWidget(r_btn, i, 0)
+        # Add to Grid (Left: Target, Right: Native)
+        for i, t_btn in enumerate(target_btns):
+            self.grid.addWidget(t_btn, i, 0)
             
-        for i, e_btn in enumerate(english_btns):
-            self.grid.addWidget(e_btn, i, 1)
+        for i, n_btn in enumerate(native_btns):
+            self.grid.addWidget(n_btn, i, 1)
             
         self.remaining_pairs = len(current_items)
 
     def handle_click(self, btn):
-        if (btn == self.selected_russian) or (btn == self.selected_english):
+        if (btn == self.selected_target) or (btn == self.selected_native):
             btn.setChecked(False)
             btn.setStyleSheet(self.get_btn_style("neutral"))
-            if btn.type == "russian": self.selected_russian = None
-            else: self.selected_english = None
+            if btn.type == "target": self.selected_target = None
+            else: self.selected_native = None
             return
 
         # Handle Selection
-        if btn.type == "russian":
-            if self.selected_russian:
-                self.selected_russian.setChecked(False)
-                self.selected_russian.setStyleSheet(self.get_btn_style("neutral"))
-            self.selected_russian = btn
+        if btn.type == "target":
+            if self.selected_target:
+                self.selected_target.setChecked(False)
+                self.selected_target.setStyleSheet(self.get_btn_style("neutral"))
+            self.selected_target = btn
             btn.setStyleSheet(self.get_btn_style("selected"))
             
-        elif btn.type == "english":
-            if self.selected_english:
-                self.selected_english.setChecked(False)
-                self.selected_english.setStyleSheet(self.get_btn_style("neutral"))
-            self.selected_english = btn
+        elif btn.type == "native":
+            if self.selected_native:
+                self.selected_native.setChecked(False)
+                self.selected_native.setStyleSheet(self.get_btn_style("neutral"))
+            self.selected_native = btn
             btn.setStyleSheet(self.get_btn_style("selected"))
 
-        if self.selected_russian and self.selected_english:
+        if self.selected_target and self.selected_native:
             self.validate_match()
 
     def validate_match(self):
-        r_item = self.selected_russian.item_data
-        e_item = self.selected_english.item_data
+        t_item = self.selected_target.item_data
+        n_item = self.selected_native.item_data
         
-        is_match = (r_item == e_item)
+        is_match = (t_item == n_item)
         
         if is_match:
-            self.selected_russian.setStyleSheet(self.get_btn_style("correct"))
-            self.selected_english.setStyleSheet(self.get_btn_style("correct"))
-            self.selected_russian.setEnabled(False)
-            self.selected_english.setEnabled(False)
+            self.selected_target.setStyleSheet(self.get_btn_style("correct"))
+            self.selected_native.setStyleSheet(self.get_btn_style("correct"))
+            self.selected_target.setEnabled(False)
+            self.selected_native.setEnabled(False)
             
             # Score +1
-            current = r_item.get('score', 0)
-            r_item['score'] = min(current + 1, self.max_score)
+            current = t_item.get('score', 0)
+            t_item['score'] = min(current + 1, self.max_score)
             
-            self.selected_russian = None
-            self.selected_english = None
+            self.selected_target = None
+            self.selected_native = None
             self.remaining_pairs -= 1
             
             if self.remaining_pairs == 0:
@@ -288,22 +290,22 @@ class MatchingDialog(QDialog):
             self.status_label.setText("Incorrect match! Try again.")
             self.status_label.setStyleSheet("font-size: 16px; color: #ff5555; font-weight: bold;")
             
-            self.selected_russian.setStyleSheet(self.get_btn_style("wrong"))
-            self.selected_english.setStyleSheet(self.get_btn_style("wrong"))
+            self.selected_target.setStyleSheet(self.get_btn_style("wrong"))
+            self.selected_native.setStyleSheet(self.get_btn_style("wrong"))
             
             # Score -1
-            r_item['score'] = r_item.get('score', 0) - 1
-            e_item['score'] = e_item.get('score', 0) - 1
+            t_item['score'] = t_item.get('score', 0) - 1
+            n_item['score'] = n_item.get('score', 0) - 1
 
             QApplication.processEvents() 
             
-            self.selected_russian.setChecked(False)
-            self.selected_english.setChecked(False)
+            self.selected_target.setChecked(False)
+            self.selected_native.setChecked(False)
             
-            QTimer.singleShot(500, lambda: self.reset_wrong_buttons(self.selected_russian, self.selected_english))
+            QTimer.singleShot(500, lambda: self.reset_wrong_buttons(self.selected_target, self.selected_native))
             
-            self.selected_russian = None
-            self.selected_english = None
+            self.selected_target = None
+            self.selected_native = None
 
     def reset_wrong_buttons(self, btn1, btn2):
         try:
@@ -331,12 +333,11 @@ class MatchingDialog(QDialog):
             self.accept()
 
     def get_btn_style(self, state):
-        # UPDATED: Increased font-size to 20px
         base = """
-            QPushButton { border-radius: 8px; font-size: 20px; font-weight: bold; padding: 5px; border: 2px solid #555; }
+            QPushButton { border-radius: 8px; font-size: 20px; font-weight: normal; padding: 5px; border: 2px solid #555; }
         """
         if state == "neutral":
-            return base + "QPushButton { background-color: #333; font-weight: normal; color: white; } QPushButton:hover { background-color: #444; }"
+            return base + "QPushButton { background-color: #333; color: white; } QPushButton:hover { background-color: #444; }"
         elif state == "selected":
             return base + "QPushButton { background-color: #fbc02d; color: black; border: 2px solid #ffeb3b; }"
         elif state == "correct":
@@ -344,6 +345,7 @@ class MatchingDialog(QDialog):
         elif state == "wrong":
             return base + "QPushButton { background-color: #c62828; color: white; border: 2px solid #ff5252; }"
         return base
+
 
 # --- MAIN WINDOW ---
 class VocabVault(QMainWindow):
@@ -360,8 +362,32 @@ class VocabVault(QMainWindow):
         font.setPointSize(14)
         self.setFont(font)
         
-        self.filename = "russian.json"
-        self.categories = ["words", "pronouns", "phrases", "sentences"]
+        # --- LANGUAGE CONFIGURATION ---
+        self.lang_config = {
+            "Russian": {
+                "filename": "russian.json",
+                "categories": ["words", "pronouns", "phrases", "sentences"],
+                "target_key": "russian",
+                "native_key": "english",
+                "show_keyboard": True
+            },
+            "Japanese": {
+                "filename": "japanese.json",
+                "categories": ["hiragana", "katakana"],
+                "target_key": "japanese",
+                "native_key": "english",
+                "show_keyboard": False
+            }
+        }
+        
+        # Set default language state
+        self.current_lang = "Russian"
+        config = self.lang_config[self.current_lang]
+        self.filename = config["filename"]
+        self.categories = config["categories"]
+        self.target_key = config["target_key"]
+        self.native_key = config["native_key"]
+
         self.tables = {} 
         self.letter_buttons = [] 
         self.is_shifted = False
@@ -411,6 +437,17 @@ class VocabVault(QMainWindow):
         
         # 0. Top Bar
         top_bar = QHBoxLayout()
+        
+        # Language Switcher
+        self.lang_selector = QComboBox()
+        self.lang_selector.addItems(self.lang_config.keys())
+        self.lang_selector.currentTextChanged.connect(self.change_language)
+        self.lang_selector.setStyleSheet("font-weight: bold; padding: 4px;")
+        top_bar.addWidget(QLabel("<b>Language:</b>"))
+        top_bar.addWidget(self.lang_selector)
+        
+        top_bar.addStretch()
+        
         self.definitions_toggle = QCheckBox("Show Definitions")
         self.definitions_toggle.setChecked(True)
         self.definitions_toggle.toggled.connect(self.toggle_definitions)
@@ -418,41 +455,19 @@ class VocabVault(QMainWindow):
             font-weight: bold; color: white; background-color: #333; 
             padding: 4px; border-radius: 5px;
         """)
-        top_bar.addStretch()
         top_bar.addWidget(self.definitions_toggle)
         main_layout.addLayout(top_bar)
         
         # 1. Tabs Area
         self.tabs = QTabWidget()
         main_layout.addWidget(self.tabs)
+        self.build_tabs()
         
-        for category in self.categories:
-            tab = QWidget()
-            tab_layout = QVBoxLayout(tab)
-            
-            table = QTableWidget()
-            table.setColumnCount(4) 
-            table.setHorizontalHeaderLabels(["Russian", "English Definition", "Score", ""])
-            
-            header = table.horizontalHeader()
-            header.setSectionResizeMode(0, QHeaderView.Stretch)
-            header.setSectionResizeMode(1, QHeaderView.Stretch)
-            header.setSectionResizeMode(2, QHeaderView.Fixed) # Score width
-            table.setColumnWidth(2, 80)
-            header.setSectionResizeMode(3, QHeaderView.Fixed) # Button width
-            table.setColumnWidth(3, 60)
-            
-            self.tables[category] = table
-            self.refresh_table(category)
-            
-            tab_layout.addWidget(table)
-            self.tabs.addTab(tab, category.title())
-
         # 2. Input Area
         input_grid = QGridLayout()
         
-        self.russian_input = QLineEdit()
-        self.russian_input.setPlaceholderText("Enter Russian word/phrase...")
+        self.target_input = QLineEdit()
+        self.target_input.setPlaceholderText(f"Enter {self.current_lang}...")
         
         self.english_input = QLineEdit()
         self.english_input.setPlaceholderText("Enter English definition...")
@@ -461,12 +476,14 @@ class VocabVault(QMainWindow):
         self.add_button.setMinimumHeight(40)
         self.add_button.clicked.connect(self.add_entry)
         
-        input_grid.addWidget(self.russian_input, 0, 0)
+        input_grid.addWidget(self.target_input, 0, 0)
         input_grid.addWidget(self.english_input, 0, 1)
         input_grid.addWidget(self.add_button, 0, 2)
         
-        keyboard_widget = self.create_keyboard()
-        input_grid.addWidget(keyboard_widget, 1, 0, alignment=Qt.AlignTop | Qt.AlignLeft)
+        self.keyboard_widget = self.create_keyboard()
+        # Initial keyboard visibility based on default language
+        self.keyboard_widget.setVisible(self.lang_config[self.current_lang]["show_keyboard"])
+        input_grid.addWidget(self.keyboard_widget, 1, 0, alignment=Qt.AlignTop | Qt.AlignLeft)
         
         # Stats & Practice Container
         self.stats_container = QWidget()
@@ -544,6 +561,52 @@ class VocabVault(QMainWindow):
         
         main_layout.addLayout(input_grid)
 
+    def build_tabs(self):
+        """Clears and rebuilds the tables based on the active categories."""
+        self.tabs.clear()
+        self.tables.clear()
+        
+        for category in self.categories:
+            tab = QWidget()
+            tab_layout = QVBoxLayout(tab)
+            
+            table = QTableWidget()
+            table.setColumnCount(4) 
+            table.setHorizontalHeaderLabels([self.current_lang, "English Definition", "Score", ""])
+            
+            header = table.horizontalHeader()
+            header.setSectionResizeMode(0, QHeaderView.Stretch)
+            header.setSectionResizeMode(1, QHeaderView.Stretch)
+            header.setSectionResizeMode(2, QHeaderView.Fixed)
+            table.setColumnWidth(2, 80)
+            header.setSectionResizeMode(3, QHeaderView.Fixed)
+            table.setColumnWidth(3, 60)
+            
+            self.tables[category] = table
+            self.refresh_table(category)
+            
+            tab_layout.addWidget(table)
+            self.tabs.addTab(tab, category.title())
+
+    def change_language(self, lang_name):
+        """Handles switching between languages."""
+        self.current_lang = lang_name
+        config = self.lang_config[lang_name]
+        
+        # Update config variables
+        self.filename = config["filename"]
+        self.categories = config["categories"]
+        self.target_key = config["target_key"]
+        self.native_key = config["native_key"]
+        
+        # Reload data and update specific UI components
+        self.data = self.load_data()
+        self.target_input.setPlaceholderText(f"Enter {lang_name}...")
+        self.keyboard_widget.setVisible(config["show_keyboard"])
+        
+        self.build_tabs()
+        self.update_stats()
+
     def start_practice(self, mode="random"):
         current_index = self.tabs.currentIndex()
         current_category = self.categories[current_index]
@@ -563,7 +626,7 @@ class VocabVault(QMainWindow):
             sample_size = min(count, len(items))
             selected_items = random.sample(items, sample_size)
             
-        dialog = FlashcardDialog(selected_items, max_score=self.MAX_SCORE, parent=self)
+        dialog = FlashcardDialog(selected_items, target_key=self.target_key, native_key=self.native_key, max_score=self.MAX_SCORE, parent=self)
         dialog.exec()
         
         self.save_data()
@@ -595,7 +658,7 @@ class VocabVault(QMainWindow):
         else:
             selected_items = random.sample(items, count)
 
-        dialog = MatchingDialog(selected_items, max_score=self.MAX_SCORE, parent=self)
+        dialog = MatchingDialog(selected_items, target_key=self.target_key, native_key=self.native_key, max_score=self.MAX_SCORE, parent=self)
         dialog.exec()
         
         self.save_data()
@@ -707,13 +770,13 @@ class VocabVault(QMainWindow):
 
     def insert_char(self, char):
         if char == " ":
-            self.russian_input.insert(" ")
+            self.target_input.insert(" ")
             return
         if char.isalpha():
             to_insert = char.upper() if self.is_shifted else char.lower()
         else:
             to_insert = char
-        self.russian_input.insert(to_insert)
+        self.target_input.insert(to_insert)
         if self.is_shifted:
             self.shift_btn.setChecked(False)
             self.toggle_shift(False)
@@ -726,8 +789,9 @@ class VocabVault(QMainWindow):
         for row_idx, item in enumerate(items):
             table.insertRow(row_idx)
             
-            table.setItem(row_idx, 0, QTableWidgetItem(item.get("russian", "")))
-            table.setItem(row_idx, 1, QTableWidgetItem(item.get("english", "")))
+            # Using dynamic keys for loading data
+            table.setItem(row_idx, 0, QTableWidgetItem(item.get(self.target_key, "")))
+            table.setItem(row_idx, 1, QTableWidgetItem(item.get(self.native_key, "")))
             
             score = item.get("score", 0)
             score_item = QTableWidgetItem(str(score))
@@ -762,26 +826,27 @@ class VocabVault(QMainWindow):
             self.update_stats()
 
     def add_entry(self):
-        russian_text = self.russian_input.text().strip()
+        target_text = self.target_input.text().strip()
         english_text = self.english_input.text().strip()
         
-        if not russian_text or not english_text:
-            QMessageBox.warning(self, "Missing Info", "Please fill in both Russian and English fields.")
+        if not target_text or not english_text:
+            QMessageBox.warning(self, "Missing Info", "Please fill in both fields.")
             return
 
         current_index = self.tabs.currentIndex()
         current_category = self.categories[current_index]
         
-        new_entry = {"russian": russian_text, "english": english_text, "score": 0}
+        # Using dynamic keys to save data
+        new_entry = {self.target_key: target_text, self.native_key: english_text, "score": 0}
         self.data[current_category].append(new_entry)
         
         self.save_data()
         self.refresh_table(current_category)
         self.update_stats()
         
-        self.russian_input.clear()
+        self.target_input.clear()
         self.english_input.clear()
-        self.russian_input.setFocus()
+        self.target_input.setFocus()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -28,7 +28,7 @@
         {
             "russian": "вода",
             "english": "water",
-            "score": 1
+            "score": 3
         },
         {
             "russian": "отлично",
@@ -48,7 +48,7 @@
         {
             "russian": "удалить",
             "english": "to delete / remove",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "загрузить",
@@ -113,7 +113,7 @@
         {
             "russian": "сливки",
             "english": "cream",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "дата",
@@ -318,7 +318,7 @@
         {
             "russian": "друг",
             "english": "friend",
-            "score": 4
+            "score": 5
         },
         {
             "russian": "извините",
@@ -478,7 +478,7 @@
         {
             "russian": "суп",
             "english": "soup",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "сыр",
@@ -538,7 +538,7 @@
         {
             "russian": "ночь",
             "english": "night",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "дело",
@@ -623,7 +623,7 @@
         {
             "russian": "апрель",
             "english": "April",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "май",
@@ -648,7 +648,7 @@
         {
             "russian": "сентябрь",
             "english": "September",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "октябрь",
@@ -698,7 +698,7 @@
         {
             "russian": "банан",
             "english": "banana",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "сестра",
@@ -773,7 +773,7 @@
         {
             "russian": "обед",
             "english": "lunch",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "ужин",
@@ -823,7 +823,7 @@
         {
             "russian": "дядя",
             "english": "uncle",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "здание",
@@ -918,7 +918,7 @@
         {
             "russian": "четырнадцать",
             "english": "fourteen",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "пятнадцать",
@@ -928,7 +928,7 @@
         {
             "russian": "шестнадцать",
             "english": "sixteen",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "семнадцать",
@@ -963,7 +963,7 @@
         {
             "russian": "пятьдесят",
             "english": "fifty",
-            "score": -1
+            "score": 0
         },
         {
             "russian": "шестьдесят",
@@ -1078,7 +1078,7 @@
         {
             "russian": "вы",
             "english": "you (formal/plural)",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "он",
@@ -1108,7 +1108,7 @@
         {
             "russian": "мой (моя, моё, мои)",
             "english": "my, mine",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "твой (твоя, твоё, твои)",
@@ -1133,7 +1133,7 @@
         {
             "russian": "её",
             "english": "her, hers (does not change)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "их",
@@ -1168,7 +1168,7 @@
         {
             "russian": "поэтому",
             "english": "therefore, that's why, so",
-            "score": 0
+            "score": -1
         },
         {
             "russian": "завтра",
@@ -1198,7 +1198,7 @@
         {
             "russian": "здесь / тут",
             "english": "here",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "оттуда",
