@@ -366,7 +366,7 @@ class VocabVault(QMainWindow):
         self.lang_config = {
             "Russian": {
                 "filename": "russian.json",
-                "categories": ["words", "pronouns", "phrases", "sentences"],
+                "categories": ["alphabet", "words", "pronouns", "phrases", "sentences"],
                 "target_key": "russian",
                 "native_key": "english",
                 "show_keyboard": True
@@ -375,6 +375,13 @@ class VocabVault(QMainWindow):
                 "filename": "japanese.json",
                 "categories": ["hiragana", "katakana"],
                 "target_key": "japanese",
+                "native_key": "english",
+                "show_keyboard": False
+            },
+            "Korean": {
+                "filename": "korean.json",
+                "categories": ["jamo"],
+                "target_key": "korean",
                 "native_key": "english",
                 "show_keyboard": False
             }

@@ -1,0 +1,204 @@
+{
+    "jamo": [
+        {
+            "korean": "ㄱ",
+            "english": "g",
+            "score": 0
+        },
+        {
+            "korean": "ㄴ",
+            "english": "n",
+            "score": 0
+        },
+        {
+            "korean": "ㄷ",
+            "english": "d",
+            "score": 1
+        },
+        {
+            "korean": "ㄹ",
+            "english": "r / l",
+            "score": 1
+        },
+        {
+            "korean": "ㅁ",
+            "english": "m",
+            "score": 1
+        },
+        {
+            "korean": "ㅂ",
+            "english": "b",
+            "score": 0
+        },
+        {
+            "korean": "ㅅ",
+            "english": "s",
+            "score": 0
+        },
+        {
+            "korean": "ㅇ",
+            "english": "ng",
+            "score": 0
+        },
+        {
+            "korean": "ㅈ",
+            "english": "j",
+            "score": 0
+        },
+        {
+            "korean": "ㅊ",
+            "english": "ch",
+            "score": 0
+        },
+        {
+            "korean": "ㅋ",
+            "english": "k",
+            "score": 0
+        },
+        {
+            "korean": "ㅌ",
+            "english": "t",
+            "score": 2
+        },
+        {
+            "korean": "ㅍ",
+            "english": "p",
+            "score": 1
+        },
+        {
+            "korean": "ㅎ",
+            "english": "h",
+            "score": 1
+        },
+        {
+            "korean": "ㄲ",
+            "english": "kk (tense)",
+            "score": 0
+        },
+        {
+            "korean": "ㄸ",
+            "english": "tt (tense)",
+            "score": 2
+        },
+        {
+            "korean": "ㅃ",
+            "english": "pp (tense)",
+            "score": 1
+        },
+        {
+            "korean": "ㅆ",
+            "english": "ss (tense)",
+            "score": 2
+        },
+        {
+            "korean": "ㅉ",
+            "english": "jj (tense)",
+            "score": 1
+        },
+        {
+            "korean": "ㅏ",
+            "english": "a",
+            "score": 0
+        },
+        {
+            "korean": "ㅑ",
+            "english": "ya",
+            "score": 1
+        },
+        {
+            "korean": "ㅓ",
+            "english": "eo (short o)",
+            "score": 1
+        },
+        {
+            "korean": "ㅕ",
+            "english": "yeo",
+            "score": 0
+        },
+        {
+            "korean": "ㅗ",
+            "english": "o (long o)",
+            "score": 2
+        },
+        {
+            "korean": "ㅛ",
+            "english": "yo",
+            "score": 0
+        },
+        {
+            "korean": "ㅜ",
+            "english": "u (oo)",
+            "score": 2
+        },
+        {
+            "korean": "ㅠ",
+            "english": "yu",
+            "score": 0
+        },
+        {
+            "korean": "ㅡ",
+            "english": "eu",
+            "score": 0
+        },
+        {
+            "korean": "ㅣ",
+            "english": "ee",
+            "score": 0
+        },
+        {
+            "korean": "ㅐ",
+            "english": "e (short e)",
+            "score": 1
+        },
+        {
+            "korean": "ㅔ",
+            "english": "e (short e)",
+            "score": 0
+        },
+        {
+            "korean": "ㅒ",
+            "english": "yeh",
+            "score": 0
+        },
+        {
+            "korean": "ㅖ",
+            "english": "yeh",
+            "score": 0
+        },
+        {
+            "korean": "ㅢ",
+            "english": "ui",
+            "score": 1
+        },
+        {
+            "korean": "ㅟ",
+            "english": "wi",
+            "score": 0
+        },
+        {
+            "korean": "ㅝ",
+            "english": "wo",
+            "score": 0
+        },
+        {
+            "korean": "ㅘ",
+            "english": "wa",
+            "score": 0
+        },
+        {
+            "korean": "ㅚ",
+            "english": "wae",
+            "score": 1
+        },
+        {
+            "korean": "ㅙ",
+            "english": "wae",
+            "score": 0
+        },
+        {
+            "korean": "ㅞ",
+            "english": "wae",
+            "score": 0
+        }
+    ]
+}

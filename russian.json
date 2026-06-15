@@ -1,4 +1,171 @@
 {
+    "alphabet": [
+        {
+            "russian": "А а",
+            "english": "A (a)",
+            "score": 2
+        },
+        {
+            "russian": "Б б",
+            "english": "B (b)",
+            "score": 2
+        },
+        {
+            "russian": "В в",
+            "english": "V (v)",
+            "score": 1
+        },
+        {
+            "russian": "Г г",
+            "english": "G (g)",
+            "score": 1
+        },
+        {
+            "russian": "Д д",
+            "english": "D (d)",
+            "score": 3
+        },
+        {
+            "russian": "Е е",
+            "english": "Ye (ye)",
+            "score": 3
+        },
+        {
+            "russian": "Ё ё",
+            "english": "Yo (yo)",
+            "score": 2
+        },
+        {
+            "russian": "Ж ж",
+            "english": "Zh (zh)",
+            "score": 3
+        },
+        {
+            "russian": "З з",
+            "english": "Z (z)",
+            "score": 2
+        },
+        {
+            "russian": "И и",
+            "english": "Ee (ee)",
+            "score": 1
+        },
+        {
+            "russian": "Й й",
+            "english": "Y (y)",
+            "score": 2
+        },
+        {
+            "russian": "К к",
+            "english": "K (k)",
+            "score": 2
+        },
+        {
+            "russian": "Л л",
+            "english": "L (l)",
+            "score": 3
+        },
+        {
+            "russian": "М м",
+            "english": "M (m)",
+            "score": 1
+        },
+        {
+            "russian": "Н н",
+            "english": "N (n)",
+            "score": 2
+        },
+        {
+            "russian": "О о",
+            "english": "O (o)",
+            "score": 2
+        },
+        {
+            "russian": "П п",
+            "english": "P (p)",
+            "score": 1
+        },
+        {
+            "russian": "Р р",
+            "english": "R (r)",
+            "score": 3
+        },
+        {
+            "russian": "С с",
+            "english": "S (s)",
+            "score": 1
+        },
+        {
+            "russian": "Т т",
+            "english": "T (t)",
+            "score": 1
+        },
+        {
+            "russian": "У у",
+            "english": "Oo (oo)",
+            "score": 2
+        },
+        {
+            "russian": "Ф ф",
+            "english": "F (f)",
+            "score": 1
+        },
+        {
+            "russian": "Х х",
+            "english": "H (kh)",
+            "score": 1
+        },
+        {
+            "russian": "Ц ц",
+            "english": "Ts (ts)",
+            "score": 3
+        },
+        {
+            "russian": "Ч ч",
+            "english": "Ch (ch)",
+            "score": 1
+        },
+        {
+            "russian": "Ш ш",
+            "english": "Sh (sh)",
+            "score": 1
+        },
+        {
+            "russian": "Щ щ",
+            "english": "Shch (shch)",
+            "score": 2
+        },
+        {
+            "russian": "Ъ ъ",
+            "english": "Hard Sign",
+            "score": 2
+        },
+        {
+            "russian": "Ы ы",
+            "english": "Ih (ih)",
+            "score": 2
+        },
+        {
+            "russian": "Ь ь",
+            "english": "Soft Sign",
+            "score": 1
+        },
+        {
+            "russian": "Э э",
+            "english": "E (eh)",
+            "score": 2
+        },
+        {
+            "russian": "Ю ю",
+            "english": "Yu (yu)",
+            "score": 4
+        },
+        {
+            "russian": "Я я",
+            "english": "Ya (ya)",
+            "score": 2
+        }
+    ],
     "words": [
         {
             "russian": "привет",
@@ -8,7 +175,7 @@
         {
             "russian": "пока",
             "english": "goodbye (casual, informal)",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "спасибо",
@@ -28,12 +195,12 @@
         {
             "russian": "вода",
             "english": "water",
-            "score": 3
+            "score": 4
         },
         {
             "russian": "отлично",
             "english": "excellent",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "хорошо",
@@ -48,7 +215,7 @@
         {
             "russian": "удалить",
             "english": "to delete / remove",
-            "score": 3
+            "score": 4
         },
         {
             "russian": "загрузить",
@@ -98,17 +265,17 @@
         {
             "russian": "вилка",
             "english": "fork",
-            "score": 3
+            "score": 4
         },
         {
             "russian": "кошка",
             "english": "cat",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "молоко",
             "english": "milk",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "сливки",
@@ -118,7 +285,7 @@
         {
             "russian": "дата",
             "english": "date",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "написать",
@@ -188,12 +355,12 @@
         {
             "russian": "напиток",
             "english": "drink / beverage",
-            "score": -1
+            "score": 0
         },
         {
             "russian": "обслуживание",
             "english": "service",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "пирог",
@@ -228,7 +395,7 @@
         {
             "russian": "хлеб",
             "english": "bread",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "курица",
@@ -288,7 +455,7 @@
         {
             "russian": "город",
             "english": "city",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "да",
@@ -338,17 +505,17 @@
         {
             "russian": "или",
             "english": "or",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "инженер",
             "english": "engineer",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "Канада",
             "english": "Canada",
-            "score": 3
+            "score": 4
         },
         {
             "russian": "капитан",
@@ -393,7 +560,7 @@
         {
             "russian": "мясо",
             "english": "meat",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "не",
@@ -428,7 +595,7 @@
         {
             "russian": "повар",
             "english": "cook (profession)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "пожалуйста",
@@ -448,7 +615,7 @@
         {
             "russian": "Россия",
             "english": "Russia",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "рюкзак",
@@ -473,12 +640,12 @@
         {
             "russian": "спать",
             "english": "sleeping / to sleep",
-            "score": 0
+            "score": 2
         },
         {
             "russian": "суп",
             "english": "soup",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "сыр",
@@ -508,7 +675,7 @@
         {
             "russian": "утро",
             "english": "morning",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "учитель",
@@ -528,7 +695,7 @@
         {
             "russian": "яблоко",
             "english": "apple",
-            "score": 3
+            "score": 4
         },
         {
             "russian": "добрый",
@@ -553,12 +720,12 @@
         {
             "russian": "а",
             "english": "but (contrast / whereas)",
-            "score": 3
+            "score": 5
         },
         {
             "russian": "жена",
             "english": "wife",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "понимать",
@@ -583,17 +750,17 @@
         {
             "russian": "среда",
             "english": "Wednesday",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "четверг",
             "english": "Thursday",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "пятница",
             "english": "Friday",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "суббота",
@@ -618,12 +785,12 @@
         {
             "russian": "март",
             "english": "March",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "апрель",
             "english": "April",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "май",
@@ -688,7 +855,7 @@
         {
             "russian": "ребёнок",
             "english": "child, baby, kid",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "дети",
@@ -723,7 +890,7 @@
         {
             "russian": "телефон",
             "english": "phone, telephone",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "тарелка",
@@ -783,7 +950,7 @@
         {
             "russian": "грамматика",
             "english": "grammar",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "студент",
@@ -793,12 +960,12 @@
         {
             "russian": "квартира",
             "english": "apartment",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "море",
             "english": "sea",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "дверь",
@@ -888,7 +1055,7 @@
         {
             "russian": "восемь",
             "english": "eight",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "девять",
@@ -898,7 +1065,7 @@
         {
             "russian": "десять",
             "english": "ten",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "одиннадцать",
@@ -938,7 +1105,7 @@
         {
             "russian": "восемнадцать",
             "english": "eighteen",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "девятнадцать",
@@ -963,12 +1130,12 @@
         {
             "russian": "пятьдесят",
             "english": "fifty",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "шестьдесят",
             "english": "sixty",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "семьдесят",
@@ -983,7 +1150,7 @@
         {
             "russian": "девяносто",
             "english": "ninety",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "сто",
@@ -993,7 +1160,7 @@
         {
             "russian": "кто",
             "english": "who",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "что",
@@ -1003,7 +1170,7 @@
         {
             "russian": "где",
             "english": "where (location)",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "куда",
@@ -1013,7 +1180,7 @@
         {
             "russian": "когда",
             "english": "when",
-            "score": 1
+            "score": 2
         },
         {
             "russian": "почему",
@@ -1083,7 +1250,7 @@
         {
             "russian": "он",
             "english": "he, it (masculine)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "она",
@@ -1093,7 +1260,7 @@
         {
             "russian": "оно",
             "english": "it (neuter)",
-            "score": 0
+            "score": 1
         },
         {
             "russian": "мы",
@@ -1128,12 +1295,12 @@
         {
             "russian": "его",
             "english": "his, its (does not change)",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "её",
             "english": "her, hers (does not change)",
-            "score": 1
+            "score": 3
         },
         {
             "russian": "их",
@@ -1188,7 +1355,7 @@
         {
             "russian": "обычно",
             "english": "usually",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "никогда",
@@ -1198,7 +1365,7 @@
         {
             "russian": "здесь / тут",
             "english": "here",
-            "score": 2
+            "score": 3
         },
         {
             "russian": "оттуда",
